@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Balloons_Pops_game
+﻿namespace BalloonsPopGame.srs
 {
+    using System;
+
     public class Game
     {
         public static void printMatrix(byte[,] matrix)
@@ -19,9 +16,6 @@ namespace Balloons_Pops_game
             for (byte column = 0; column < matrix.GetLongLength(1) * 2 + 1; column++)
             {
                 Console.Write("-");
-
-
-
             }
 
             Console.WriteLine();         // trinket stuff for printMatrix() till here
@@ -37,8 +31,6 @@ namespace Balloons_Pops_game
                         continue;
                     }
 
-
-
                     Console.Write(matrix[i, j] + " ");
                 }
                 Console.Write("| ");
@@ -52,7 +44,6 @@ namespace Balloons_Pops_game
             }
             Console.WriteLine();
         }
-
 
         public static byte[,] gen(byte rows, byte columns)
         {
@@ -68,6 +59,5 @@ namespace Balloons_Pops_game
             }
             return temp;
         }
-
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 // kolko me cepi glavata, piqna sym ot vcera, sha vyrna li vodkata ili sha ya poema, dajte mi bira, da iztrezneyaaa
 
-namespace Balloons_Pops_game
+namespace BalloonsPopGame
 {
     class Balloons_Pops_game : Game
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Balloons_Pops_game
+namespace BalloonsPopGame
 {
     public class Game
     {
