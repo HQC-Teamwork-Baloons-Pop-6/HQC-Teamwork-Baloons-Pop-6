@@ -13,10 +13,14 @@
             {
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
-                    matrix[newRow, newColumn] = 0; checkLeft(matrix, newRow, newColumn, searchedItem);
+                    matrix[newRow, newColumn] = 0; 
+                    checkLeft(matrix, newRow, newColumn, searchedItem);
                 }
-
-                else return;
+                else
+                {
+                    return;
+                }
+                    
             }
             catch (IndexOutOfRangeException)
             { 
@@ -35,7 +39,10 @@
                     matrix[newRow, newColumn] = 0;
                     checkRight(matrix, newRow, newColumn, searchedItem);
                 }
-                else return;
+                else
+                {
+                    return;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -54,7 +61,10 @@
                     matrix[newRow, newColumn] = 0;
                     checkUp(matrix, newRow, newColumn, searchedItem);
                 }
-                else return;
+                else
+                {
+                    return;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -200,7 +210,7 @@
         private static void Main(string[] args)
         {
             string[,] topFive = new string[5, 2];
-            byte[,] matrix = gen(5, 10);
+            byte[,] matrix = generateMatrix(5, 10);
 
             printMatrix(matrix);
             string temp = null;
@@ -222,7 +232,7 @@
             switch (temp)
             {
                 case "RESTART":
-                    matrix = gen(5, 10);
+                    matrix = generateMatrix(5, 10);
                     printMatrix(matrix);
                     userMoves = 0;
                     break;
@@ -260,7 +270,7 @@
                             {
                                 Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                             }
-                            matrix = gen(5, 10);
+                            matrix = generateMatrix(5, 10);
                             userMoves = 0;
                         }
                         printMatrix(matrix);

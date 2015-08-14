@@ -45,7 +45,7 @@
             Console.WriteLine();
         }
 
-        public static byte[,] gen(byte rows, byte columns)
+        public static byte[,] generateMatrix(byte rows, byte columns)
         {
             byte[,] temp = new byte[rows, columns];
             Random randNumber = new Random();
