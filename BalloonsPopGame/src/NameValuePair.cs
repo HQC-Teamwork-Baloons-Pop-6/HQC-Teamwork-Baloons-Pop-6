@@ -1,4 +1,4 @@
-namespace BalloonsPopGame.srs
+namespace BalloonsPopGame.Srs
 {
     using System;
 

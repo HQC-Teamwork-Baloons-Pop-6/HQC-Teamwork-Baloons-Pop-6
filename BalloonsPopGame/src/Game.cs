@@ -1,10 +1,10 @@
-﻿namespace BalloonsPopGame.srs
+﻿namespace BalloonsPopGame.Srs
 {
     using System;
 
     public class Game
     {
-        public static void printMatrix(byte[,] matrix)
+        public static void PrintMatrix(byte[,] matrix)
         {
             Console.Write("    ");
             for (byte column = 0; column < matrix.GetLongLength(1); column++)
@@ -13,7 +13,7 @@
             }
 
             Console.Write("\n   ");
-            for (byte column = 0; column < matrix.GetLongLength(1) * 2 + 1; column++)
+            for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
             {
                 Console.Write("-");
             }
@@ -33,19 +33,21 @@
 
                     Console.Write(matrix[i, j] + " ");
                 }
+
                 Console.Write("| ");
                 Console.WriteLine();
             }
 
             Console.Write("   ");     //some trinket stuff again
-            for (byte column = 0; column < matrix.GetLongLength(1) * 2 + 1; column++)
+            for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
             {
                 Console.Write("-");
             }
+
             Console.WriteLine();
         }
 
-        public static byte[,] generateMatrix(byte rows, byte columns)
+        public static byte[,] GenerateMatrix(byte rows, byte columns)
         {
             byte[,] temp = new byte[rows, columns];
             Random randNumber = new Random();
@@ -57,6 +59,7 @@
                     temp[row, column] = tempByte;
                 }
             }
+
             return temp;
         }
     }

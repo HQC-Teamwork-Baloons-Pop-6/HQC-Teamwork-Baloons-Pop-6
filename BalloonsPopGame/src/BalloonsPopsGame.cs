@@ -1,11 +1,11 @@
-﻿namespace BalloonsPopGame.srs
+﻿namespace BalloonsPopGame.Srs
 {
     using System;
     using System.Collections.Generic;
 
     internal class BalloonsPopsGame : Game
     {
-        private static void checkLeft(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckLeft(byte[,] matrix, int row, int column, int searchedItem)
         {
             int newRow = row;
             int newColumn = column - 1;
@@ -13,22 +13,21 @@
             {
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
-                    matrix[newRow, newColumn] = 0; 
-                    checkLeft(matrix, newRow, newColumn, searchedItem);
+                    matrix[newRow, newColumn] = 0;
+                    CheckLeft(matrix, newRow, newColumn, searchedItem);
                 }
                 else
                 {
                     return;
                 }
-                    
             }
             catch (IndexOutOfRangeException)
-            { 
+            {
                 return;
             }
         }
 
-        private static void checkRight(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckRight(byte[,] matrix, int row, int column, int searchedItem)
         {
             int newRow = row;
             int newColumn = column + 1;
@@ -37,7 +36,7 @@
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
                     matrix[newRow, newColumn] = 0;
-                    checkRight(matrix, newRow, newColumn, searchedItem);
+                    CheckRight(matrix, newRow, newColumn, searchedItem);
                 }
                 else
                 {
@@ -50,7 +49,7 @@
             }
         }
 
-        private static void checkUp(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckUp(byte[,] matrix, int row, int column, int searchedItem)
         {
             int newRow = row + 1;
             int newColumn = column;
@@ -59,7 +58,7 @@
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
                     matrix[newRow, newColumn] = 0;
-                    checkUp(matrix, newRow, newColumn, searchedItem);
+                    CheckUp(matrix, newRow, newColumn, searchedItem);
                 }
                 else
                 {
@@ -72,7 +71,7 @@
             }
         }
 
-        private static void checkDown(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckDown(byte[,] matrix, int row, int column, int searchedItem)
         {
             int newRow = row - 1;
             int newColumn = column;
@@ -81,9 +80,12 @@
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
                     matrix[newRow, newColumn] = 0;
-                    checkDown(matrix, newRow, newColumn, searchedItem);
+                    CheckDown(matrix, newRow, newColumn, searchedItem);
                 }
-                else return;
+                else
+                {
+                    return;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -91,7 +93,7 @@
             }
         }
 
-        private static bool change(byte[,] matrixToModify, int rowAtm, int columnAtm)
+        private static bool Change(byte[,] matrixToModify, int rowAtm, int columnAtm)
         {
             if (matrixToModify[rowAtm, columnAtm] == 0)
             {
@@ -100,15 +102,15 @@
 
             byte searchedTarget = matrixToModify[rowAtm, columnAtm];
             matrixToModify[rowAtm, columnAtm] = 0;
-            checkLeft(matrixToModify, rowAtm, columnAtm, searchedTarget);
-            checkRight(matrixToModify, rowAtm, columnAtm, searchedTarget);
+            CheckLeft(matrixToModify, rowAtm, columnAtm, searchedTarget);
+            CheckRight(matrixToModify, rowAtm, columnAtm, searchedTarget);
 
-            checkUp(matrixToModify, rowAtm, columnAtm, searchedTarget);
-            checkDown(matrixToModify, rowAtm, columnAtm, searchedTarget);
+            CheckUp(matrixToModify, rowAtm, columnAtm, searchedTarget);
+            CheckDown(matrixToModify, rowAtm, columnAtm, searchedTarget);
             return false;
         }
 
-        private static bool doit(byte[,] matrix)
+        private static bool CheckIfIsWinner(byte[,] matrix)
         {
             bool isWinner = true;
             Stack<byte> stek = new Stack<byte>();
@@ -124,7 +126,7 @@
                     }
                 }
 
-                for (int k = columnLenght - 1; (k >= 0); k--)
+                for (int k = columnLenght - 1; k >= 0; k--)
                 {
                     try
                     {
@@ -140,7 +142,7 @@
             return isWinner;
         }
 
-        private static void sortAndPrintChartFive(string[,] tableToSort)
+        private static void SortAndPrintChartFive(string[,] tableToSort)
         {
             List<NameValuePair> finalScore = new List<NameValuePair>();
 
@@ -165,54 +167,54 @@
             Console.WriteLine("----------------------------------");
         }
 
-        private static bool signIfSkilled(string[,] Chart, int points)
+        private static bool SignIfSkilled(string[,] chart, int points)
         {
-            bool Skilled = false;
+            bool skilled = false;
             int worstMoves = 0;
             int worstMovesChartPosition = 0;
             for (int i = 0; i < 5; i++)
             {
-                if (Chart[i, 0] == null)
+                if (chart[i, 0] == null)
                 {
                     Console.WriteLine("Type in your name.");
                     string tempUserName = Console.ReadLine();
-                    Chart[i, 0] = points.ToString();
-                    Chart[i, 1] = tempUserName;
-                    Skilled = true;
+                    chart[i, 0] = points.ToString();
+                    chart[i, 1] = tempUserName;
+                    skilled = true;
                     break;
                 }
             }
 
-            if (Skilled == false)
+            if (skilled == false)
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    if (int.Parse(Chart[i, 0]) > worstMoves)
+                    if (int.Parse(chart[i, 0]) > worstMoves)
                     {
                         worstMovesChartPosition = i;
-                        worstMoves = int.Parse(Chart[i, 0]);
+                        worstMoves = int.Parse(chart[i, 0]);
                     }
                 }
             }
 
-            if (points < worstMoves && Skilled == false)
+            if (points < worstMoves && skilled == false)
             {
                 Console.WriteLine("Type in your name.");
                 string tempUserName = Console.ReadLine();
-                Chart[worstMovesChartPosition, 0] = points.ToString();
-                Chart[worstMovesChartPosition, 1] = tempUserName;
-                Skilled = true;
+                chart[worstMovesChartPosition, 0] = points.ToString();
+                chart[worstMovesChartPosition, 1] = tempUserName;
+                skilled = true;
             }
 
-            return Skilled;
+            return skilled;
         }
 
         private static void Main(string[] args)
         {
             string[,] topFive = new string[5, 2];
-            byte[,] matrix = generateMatrix(5, 10);
+            byte[,] matrix = GenerateMatrix(5, 10);
 
-            printMatrix(matrix);
+            PrintMatrix(matrix);
             string temp = null;
             int userMoves = 0;
             while (temp != "EXIT")
@@ -232,13 +234,13 @@
             switch (temp)
             {
                 case "RESTART":
-                    matrix = generateMatrix(5, 10);
-                    printMatrix(matrix);
+                    matrix = GenerateMatrix(5, 10);
+                    PrintMatrix(matrix);
                     userMoves = 0;
                     break;
 
                 case "TOP":
-                    sortAndPrintChartFive(topFive);
+                    SortAndPrintChartFive(topFive);
                     break;
 
                 default:
@@ -251,29 +253,33 @@
                             Console.WriteLine("Wrong input ! Try Again ! ");
                             return;
                         }
+
                         userColumn = int.Parse(temp[2].ToString());
 
-                        if (change(matrix, userRow, userColumn))
+                        if (Change(matrix, userRow, userColumn))
                         {
                             Console.WriteLine("cannot pop missing ballon!");
                             return;
                         }
+
                         userMoves++;
-                        if (doit(matrix))
+                        if (CheckIfIsWinner(matrix))
                         {
                             Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
-                            if (signIfSkilled(topFive, userMoves))
+                            if (SignIfSkilled(topFive, userMoves))
                             {
-                                sortAndPrintChartFive(topFive);
+                                SortAndPrintChartFive(topFive);
                             }
                             else
                             {
                                 Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                             }
-                            matrix = generateMatrix(5, 10);
+
+                            matrix = GenerateMatrix(5, 10);
                             userMoves = 0;
                         }
-                        printMatrix(matrix);
+
+                        PrintMatrix(matrix);
                         break;
                     }
                     else
