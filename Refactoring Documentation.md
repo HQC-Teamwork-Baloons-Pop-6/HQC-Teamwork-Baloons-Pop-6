@@ -17,8 +17,9 @@
   rename variable temp to matrix.<br/>
   rename variable randNumber to randomNumber.<br/>
   rename variable tempByte to currentNumber.<br/>
-  extraxt two constants for generating number between them.
-  private const byte MinRandomNumber = 1;
-  private const byte MaxRandomNumber = 5;
+  extraxt two constants for generating number between them.<br/>
+  private const byte MinRandomNumber = 1;<br/>
+  private const byte MaxRandomNumber = 5;<br/>
+18.Rename NamePairValue file and class to Gamer.<br/>
 
 
