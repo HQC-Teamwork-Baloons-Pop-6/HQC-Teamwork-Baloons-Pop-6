@@ -12,12 +12,12 @@
 13.Remame method bool doit=> bool CheckIfisWinner.<br/>
 14.Rename file and namespace from Game=> PrintingManager.<br/>
 15.Make abstract class PrintingManager.<br/>
-  Console.Write("\n   "); => 
-      Console.WriteLine();
-      Console.Write("   ");
+  Console.Write("\n   "); => <br/>
+      Console.WriteLine(); <br/>
+      Console.Write("   "); <br/>
       
-  DRY (Don't repeat yourself)
-  extract method PrintLine() and remove duplicate code.
+  DRY (Don't repeat yourself) <br/>
+  extract method PrintLine() and remove duplicate code.<br/>
   
             Console.Write("   ");     // some trinket stuff again
             for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
@@ -26,9 +26,9 @@
             }
             Console.WriteLine();
   
-  remove comments
-    // trinket stuff for printMatrix() till here
-    // some trinket stuff again
+  remove comments <br/>
+    // trinket stuff for printMatrix() till here<br/>
+    // some trinket stuff again<br/>
   
 16.Add abstract class MatrixGenerator and move method GenerateMatrix from PrinterManager<br/>
 17.In method GenerateMatrix.<br/>
