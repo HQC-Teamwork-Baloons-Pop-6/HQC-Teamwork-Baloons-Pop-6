@@ -10,3 +10,35 @@
 11.Rename methods UpperCase.<br/>
 12.Remame variables to camelCase.<br/>
 13.Remame method bool doit=> bool CheckIfisWinner.<br/>
+14.Rename file and namespace from Game=> PrintingManager.<br/>
+15.Make abstract class PrintingManager.<br/>
+  Console.Write("\n   "); => <br/>
+      Console.WriteLine(); <br/>
+      Console.Write("   "); <br/>
+      
+  DRY (Don't repeat yourself) <br/>
+  extract method PrintLine() and remove duplicate code.<br/>
+  
+            Console.Write("   ");     // some trinket stuff again
+            for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
+  
+  remove comments <br/>
+    // trinket stuff for printMatrix() till here<br/>
+    // some trinket stuff again<br/>
+  
+16.Add abstract class MatrixGenerator and move method GenerateMatrix from PrinterManager<br/>
+17.In method GenerateMatrix.<br/>
+  rename variable temp to matrix.<br/>
+  rename variable randNumber to randomNumber.<br/>
+  rename variable tempByte to currentNumber.<br/>
+  extraxt two constants for generating number between them.<br/>
+  private const byte MinRandomNumber = 1;<br/>
+  private const byte MaxRandomNumber = 5;<br/>
+18.Rename NamePairValue file and class to Gamer.<br/>
+
+
+
