@@ -26,6 +26,10 @@
             }
             Console.WriteLine();
   
+  remove comments
+    // trinket stuff for printMatrix() till here
+    // some trinket stuff again
+  
 16.Add abstract class MatrixGenerator and move method GenerateMatrix from PrinterManager<br/>
 17.In method GenerateMatrix.<br/>
   rename variable temp to matrix.<br/>
