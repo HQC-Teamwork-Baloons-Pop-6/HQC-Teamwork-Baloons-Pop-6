@@ -13,8 +13,12 @@
 14.Rename file and namespace from Game=> PrintingManager.<br/>
 15.Make abstract class PrintingManager.<br/>
 16.Add abstract class MatrixGenerator and move method GenerateMatrix from PrinterManager<br/>
-17.In method GenerateMatrix rename variable temp to matrix.<br/>
+17.In method GenerateMatrix.<br/>
+  rename variable temp to matrix.<br/>
   rename variable randNumber to randomNumber.<br/>
   rename variable tempByte to currentNumber.<br/>
-18.
+  extraxt two constants for generating number between them.
+  private const byte MinRandomNumber = 1;
+  private const byte MaxRandomNumber = 5;
+
 
