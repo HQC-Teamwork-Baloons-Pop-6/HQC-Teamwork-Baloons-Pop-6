@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalloonsPopsGame.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="NameValuePair.cs" />
+    <Compile Include="MatrixGenerator.cs" />
+    <Compile Include="PrintingManager.cs" />
+    <Compile Include="Gamer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

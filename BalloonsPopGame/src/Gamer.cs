@@ -2,12 +2,12 @@ namespace BalloonsPopGame.Srs
 {
     using System;
 
-    public class NameValuePair : IComparable<NameValuePair>
+    public class Gamer : IComparable<Gamer>
     {
         private int value;
         private string name;
 
-        public NameValuePair(int value, string name)
+        public Gamer(int value, string name)
         {
             this.Value = value;
             this.Name = name;
@@ -25,7 +25,7 @@ namespace BalloonsPopGame.Srs
             set { this.name = value; }
         }
 
-        public int CompareTo(NameValuePair other)
+        public int CompareTo(Gamer other)
         {
             return this.Value.CompareTo(other.Value);
         }

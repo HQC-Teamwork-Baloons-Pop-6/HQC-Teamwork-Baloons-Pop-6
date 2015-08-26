@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    internal class BalloonsPopsGame : Game
+    internal class BalloonsPopsGame
     {
         private static void CheckLeft(byte[,] matrix, int row, int column, int searchedItem)
         {
@@ -144,7 +144,7 @@
 
         private static void SortAndPrintChartFive(string[,] tableToSort)
         {
-            List<NameValuePair> finalScore = new List<NameValuePair>();
+            List<Gamer> finalScore = new List<Gamer>();
 
             for (int i = 0; i < 5; ++i)
             {
@@ -153,14 +153,14 @@
                     break;
                 }
 
-                finalScore.Add(new NameValuePair(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
+                finalScore.Add(new Gamer(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
             }
 
             finalScore.Sort();
             Console.WriteLine("---------TOP FIVE CHART-----------");
             for (int i = 0; i < finalScore.Count; ++i)
             {
-                NameValuePair slot = finalScore[i];
+                Gamer slot = finalScore[i];
                 Console.WriteLine("{2}.   {0} with {1} moves.", slot.Name, slot.Value, i + 1);
             }
 
@@ -212,9 +212,9 @@
         private static void Main(string[] args)
         {
             string[,] topFive = new string[5, 2];
-            byte[,] matrix = GenerateMatrix(5, 10);
+            byte[,] matrix = MatrixGenerator.GenerateMatrix(5, 10);
 
-            PrintMatrix(matrix);
+            PrintingManager.PrintMatrix(matrix);
             string temp = null;
             int userMoves = 0;
             while (temp != "EXIT")
@@ -234,8 +234,8 @@
             switch (temp)
             {
                 case "RESTART":
-                    matrix = GenerateMatrix(5, 10);
-                    PrintMatrix(matrix);
+                    matrix = MatrixGenerator.GenerateMatrix(5, 10);
+                    PrintingManager.PrintMatrix(matrix);
                     userMoves = 0;
                     break;
 
@@ -275,11 +275,11 @@
                                 Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                             }
 
-                            matrix = GenerateMatrix(5, 10);
+                            matrix = MatrixGenerator.GenerateMatrix(5, 10);
                             userMoves = 0;
                         }
 
-                        PrintMatrix(matrix);
+                        PrintingManager.PrintMatrix(matrix);
                         break;
                     }
                     else
