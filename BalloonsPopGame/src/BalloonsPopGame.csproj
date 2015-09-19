@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BalloonsPopGame.Srs</RootNamespace>
-    <AssemblyName>BalloonsPopGame.Srs</AssemblyName>
+    <AssemblyName>BalloonsPopGame</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalloonsPopsGame.cs" />
-    <Compile Include="BoardGenerator.cs" />
+    <Compile Include="Manufacturers\TelerikSoft.cs" />
+    <Compile Include="Products\Board10x10.cs" />
+    <Compile Include="Products\Board.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="GameLogic.cs" />
+    <Compile Include="Manufacturers\Manufacturer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PrintingManager.cs" />
     <Compile Include="ScoreBoard.cs" />

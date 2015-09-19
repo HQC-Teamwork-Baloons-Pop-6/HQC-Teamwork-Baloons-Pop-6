@@ -1,6 +1,7 @@
 ﻿namespace BalloonsPopGame.Srs
 {
     using System;
+    using BalloonsPopGame.Srs.Products;
 
     public class GameEngine
     {
@@ -21,10 +22,15 @@
 
         private static void ProcessGame(string currentCommand, string[,] topFive, ref byte[,] matrix, ref int userMoves)
         {
+            byte rowLenght = (byte)matrix.GetLength(0);
+            byte columnLenght = (byte)matrix.GetLength(1);
+            Board board = new Board(rowLenght, columnLenght);
+
             switch (currentCommand)
             {
                 case "RESTART":
-                    matrix = BoardGenerator.GenerateBoard(5, 10);
+
+                    matrix = board.GenerateBoard();
 
                     PrintingManager.PrintMatrix(matrix);
                     userMoves = 0;
@@ -34,12 +40,15 @@
                     ScoreBoard.PrintTopFive(topFive);
                     break;
 
+                case "EXIT":
+                    break;
+
                 default:
                     if ((currentCommand.Length == 3) && (currentCommand[0] >= '0' && currentCommand[0] <= '9') && (currentCommand[2] >= '0' && currentCommand[2] <= '9') && (currentCommand[1] == ' ' || currentCommand[1] == '.' || currentCommand[1] == ','))
                     {
                         int userRow, userColumn;
                         userRow = int.Parse(currentCommand[0].ToString());
-                        if (userRow > 4)
+                        if (userRow > rowLenght - 1)
                         {
                             Console.WriteLine("Wrong input ! Try Again ! ");
                             return;
@@ -66,7 +75,7 @@
                                 Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                             }
 
-                            matrix = BoardGenerator.GenerateBoard(5, 10);
+                            matrix = board.GenerateBoard();
                             userMoves = 0;
                         }
 
