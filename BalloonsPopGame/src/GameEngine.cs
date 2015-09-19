@@ -18,16 +18,14 @@
                 ProcessGame(currentCommand, topFive, ref matrix, ref userMoves);
             }
         }
+
         private static void ProcessGame(string currentCommand, string[,] topFive, ref byte[,] matrix, ref int userMoves)
         {
             switch (currentCommand)
             {
                 case "RESTART":
-<<<<<<< HEAD
                     matrix = BoardGenerator.GenerateBoard(5, 10);
-=======
-                    matrix = MatrixGenerator.GenerateMatrix(5, 10);
->>>>>>> bb139ec5b1a454fc1f5c837eff99468cd46608bf
+
                     PrintingManager.PrintMatrix(matrix);
                     userMoves = 0;
                     break;
@@ -68,11 +66,7 @@
                                 Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                             }
 
-<<<<<<< HEAD
                             matrix = BoardGenerator.GenerateBoard(5, 10);
-=======
-                            matrix = MatrixGenerator.GenerateMatrix(5, 10);
->>>>>>> bb139ec5b1a454fc1f5c837eff99468cd46608bf
                             userMoves = 0;
                         }
 

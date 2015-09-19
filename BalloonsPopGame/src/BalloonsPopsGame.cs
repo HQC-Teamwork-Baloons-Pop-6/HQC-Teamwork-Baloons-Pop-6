@@ -13,19 +13,12 @@
         private static void Main()
         {
             string[,] topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
-<<<<<<< HEAD
+
             byte[,] playBoard = BoardGenerator.GenerateBoard(PlayBoardRows, PlayBoardCols);
             PrintingManager.PrintMatrix(playBoard);
 
             GameEngine engine = new GameEngine();
             engine.Start(topFivePlayers, playBoard);
-=======
-            byte[,] boardMatrix = MatrixGenerator.GenerateMatrix(PlayBoardRows, PlayBoardCols);
-            PrintingManager.PrintMatrix(boardMatrix);
-
-            GameEngine engine = new GameEngine();
-            engine.Start(topFivePlayers, boardMatrix);
->>>>>>> bb139ec5b1a454fc1f5c837eff99468cd46608bf
 
             Console.WriteLine("Good Bye! ");
         }

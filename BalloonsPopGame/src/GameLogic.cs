@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BalloonsPopGame.Srs
+﻿namespace BalloonsPopGame.Srs
 {
+    using System;
+
     public abstract class GameLogic
     {
         public static bool CheckIfEmptyElseChangeCurrentPlayBoard(byte[,] currentPlayBoard, int rowAtm, int columnAtm)

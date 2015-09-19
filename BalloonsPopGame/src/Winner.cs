@@ -9,14 +9,10 @@
         {
             bool isWinner = true;
             Stack<byte> stek = new Stack<byte>();
-<<<<<<< HEAD
+
             int rowLenght = matrix.GetLength(1);
             int columnLenght = matrix.GetLength(0);
             for (int j = 0; j < rowLenght; j++)
-=======
-            int columnLenght = matrix.GetLength(0);
-            for (int j = 0; j < matrix.GetLength(1); j++)
->>>>>>> bb139ec5b1a454fc1f5c837eff99468cd46608bf
             {
                 for (int i = 0; i < columnLenght; i++)
                 {
@@ -42,8 +38,7 @@
 
             return isWinner;
         }
-
-
+        
         public static bool SignIfSkilled(string[,] chart, int points)
         {
             bool skilled = false;
