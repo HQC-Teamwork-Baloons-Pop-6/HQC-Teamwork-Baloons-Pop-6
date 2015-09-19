@@ -1,87 +1,71 @@
+1.  Redesigned the project structure: Team “Baloons-Pop-6”
+	-   Renamed the project to `BalloonsPopsGame`.
+	-   Add internal to class `BalloonsPopsGame`.
+	-   Renamed namespace from `Balloons_Pops_game` to  `BalloonsPopGame.Src`.
+	-   Extracted each class in a separate file with a good name:`BaloonsPopsGame.cs`, `GameEngine.cs`, `GameLogic.cs`, `BoardGenerator.cs`, `Player.cs`, `PrintingManager.cs`, `ScoreBoard.cs`, `Winner.cs`.
+		
+2.  Reformatted the source code:`StyleCop` errors.
+	-   Removed all unneeded empty lines.
+	-   Inserted empty lines between the methods.
+	-   Split the lines containing several statements into several simple lines, e.g.:
+	
+	Before:
+	
+		catch(IndexOutOfRangeException)
+                    {return;} 
+		
+	After:
 
-1. Change namespace from Balloons_Pops_game to BalloonsPopGame.Src.
-2. StyleCop check.
-3. Add internal to class BalloonsPopsGame : Game.
-4. Rename Class NamePairValue file and class to Gamer.change fields public to private.
-5. Add properties to private fields.
-6. Change the constructor(this).
-7. Rename private field val to Value and asign this.
-8. Rename Baloons_Pops_game.cs ->BaloonsPopGame.
-9. StyleCop errors.
-10. Rename methods UpperCase.
-11. Remame variables to camelCase.
-12. Remame method bool doit=> bool CheckIfisWinner.
-13. Rename file and namespace from Game=> PrintingManager.
-14. Make abstract class PrintingManager.
+		catch (IndexOutOfRangeException)
+            {
+                return;
+            }
+	
+	-   Formatted the curly braces **{** and **}** according to the best practices for the C\# language.
+	-   Put **{** and **}** after all conditionals and loops (when missing).
+	-   Character casing: variables and fields made **camelCase**; types and methods made **PascalCase**.
+	-   Formatted all other elements of the source code according to the best practices introduced in the course “[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)”.
 
-```c#
+3.  Renamed variables:
+	-   In class `BoardGenerator`: `temp` to `matrix`.
+	-   In class `BoardGenerator`: `randNumber` to `randomNumber`.
+	-   In class `BoardGenerator`: `tempByte` to `currentNumber`.
+	-   In class `Player`: `val` to `value`.
 
-Console.Write("\n   "); =>
+4.  Introduced constants:
+	-   private const byte `MinRandomNumber` = 1;
+	-   private const byte `MaxRandomNumber` = 5;
+	-   private const byte `ScoreBoardRows` = 5;
+	-   private const byte `ScoreBoardCols` = 2;
+	-   private const byte `PlayBoardRows` = 5;
+	-   private const byte `PlayBoardCols` = 10;
 
-      Console.WriteLine(); 
 
-      Console.Write("   "); 
+5.  **DRY (Don't repeat yourself)**.Extracted the method `PrintLine()` from the method `PrintMatrix()`. 
+	- Removed duplicate code.
 ```
-
-**DRY (Don't repeat yourself)**
-
-  Extract method PrintLine() and remove duplicate code.
-```c#
- Console.Write("   ");     // some trinket stuff again
-
+Console.Write("   "); // some trinket stuff again
    for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
-      {
-         Console.Write("-");
-      }
-     Console.WriteLine();
-
+  {
+ Console.Write("-");
+  }
+ Console.WriteLine();
 ```
-  
-  remove comments <br/>
-    // trinket stuff for printMatrix() till here<br/>
-    // some trinket stuff again<br/>
 
+	- Removed comments.`// trinket stuff for printMatrix() till here`
+   
 
-15. **Single responsibility**.Add abstract class MatrixGenerator and move method GenerateMatrix from PrinterManager.
-16. In method GenerateMatrix.
-rename variable temp to matrix.
+6.  **Single responsibility**. Introduced class `MatrixGenerator` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
+7.  Renamed method bool `doit` to `CheckIfIsWinner`.
+8.  Renamed class `Game` to `PrintingManager`.
+9.  Introduced class `ScoreBoard` and moved all related functionality in it.
+10.  Renamed Class `NamePairValue` to `Player`.
+	-   Change fields public to private.
+	-   Add properties to private fields.
+	-   Change the constructor(this).
+	-   Rename private field val to Value and asign this.
 
-  rename variable randNumber to randomNumber.
-
-  rename variable tempByte to currentNumber.
-
-  extraxt two constants for generating number between them.
-
-  private const byte MinRandomNumber = 1;
-
-  private const byte MaxRandomNumber = 5;
-
-
-17. .
-
-18. .
-
-19. .
-
-20. .
-
-21. .
-
-22. .
-
-23. .
-
-24. .
-
-25. .
-
-26. .
-
-27. .
-
-28. .
-
-
+11.  
 
 
 
