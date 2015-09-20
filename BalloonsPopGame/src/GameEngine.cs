@@ -5,7 +5,7 @@
 
     public class GameEngine
     {
-        public void Start(string[,] topFive, byte[,] matrix)
+        public void Start(string[,] topFive, byte[,] playBoard)
         {
             string currentCommand = null;
             int userMoves = 0;
@@ -16,23 +16,22 @@
                 currentCommand = Console.ReadLine();
                 currentCommand = currentCommand.ToUpper().Trim();
 
-                ProcessGame(currentCommand, topFive, ref matrix, ref userMoves);
+                ProcessGame(currentCommand, topFive, ref playBoard, ref userMoves);
             }
         }
 
-        private static void ProcessGame(string currentCommand, string[,] topFive, ref byte[,] matrix, ref int userMoves)
+        private static void ProcessGame(string currentCommand, string[,] topFive, ref byte[,] playBoard, ref int userMoves)
         {
-            byte rowLenght = (byte)matrix.GetLength(0);
-            byte columnLenght = (byte)matrix.GetLength(1);
+            byte rowLenght = (byte)playBoard.GetLength(0);
+            byte columnLenght = (byte)playBoard.GetLength(1);
             Board board = new Board(rowLenght, columnLenght);
+            var log = PrintingManager.Instance;
 
             switch (currentCommand)
             {
                 case "RESTART":
-
-                    matrix = board.GenerateBoard();
-
-                    PrintingManager.PrintMatrix(matrix);
+                    playBoard = board.GenerateBoard();
+                    log.PrintMatrix(playBoard);
                     userMoves = 0;
                     break;
 
@@ -56,14 +55,14 @@
 
                         userColumn = int.Parse(currentCommand[2].ToString());
 
-                        if (GameLogic.CheckIfEmptyElseChangeCurrentPlayBoard(matrix, userRow, userColumn))
+                        if (GameLogic.CheckIfEmptyElseChangeCurrentPlayBoard(playBoard, userRow, userColumn))
                         {
                             Console.WriteLine("cannot pop missing ballon!");
                             return;
                         }
 
                         userMoves++;
-                        if (Winner.CheckIfIsWinner(matrix))
+                        if (Winner.CheckIfIsWinner(playBoard))
                         {
                             Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
                             if (Winner.SignIfSkilled(topFive, userMoves))
@@ -75,11 +74,11 @@
                                 Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                             }
 
-                            matrix = board.GenerateBoard();
+                            playBoard = board.GenerateBoard();
                             userMoves = 0;
                         }
 
-                        PrintingManager.PrintMatrix(matrix);
+                        log.PrintMatrix(playBoard);
                         break;
                     }
                     else

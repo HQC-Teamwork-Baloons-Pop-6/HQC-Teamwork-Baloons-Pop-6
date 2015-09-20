@@ -2,9 +2,9 @@
 	-   Renamed the project to `BalloonsPopsGame`.
 	-   Add internal to class `BalloonsPopsGame`.
 	-   Renamed namespace from `Balloons_Pops_game` to  `BalloonsPopGame.Src`.
-	-   Extracted each class in a separate file with a good name:`BaloonsPopsGame.cs`, `GameEngine.cs`, `GameLogic.cs`, `BoardGenerator.cs`, `Player.cs`, `PrintingManager.cs`, `ScoreBoard.cs`, `Winner.cs`.
+	-   Extracted each class in a separate file with a good name:`GameStart.cs`, `GameEngine.cs`, `GameLogic.cs`, `Board.cs`, `Player.cs`, `PrintingManager.cs`, `ScoreBoard.cs`, `Winner.cs`.
 		
-2.  Reformatted the source code:`StyleCop` errors.
+2.  Reformatted the source code using **`StyleCop`**.
 	-   Removed all unneeded empty lines.
 	-   Inserted empty lines between the methods.
 	-   Split the lines containing several statements into several simple lines, e.g.:
@@ -23,7 +23,8 @@
 	
 	-   Formatted the curly braces **{** and **}** according to the best practices for the C\# language.
 	-   Put **{** and **}** after all conditionals and loops (when missing).
-	-   Character casing: variables and fields made **camelCase**; types and methods made **PascalCase**.
+	-   Character casing: variables and fields made **camelCase**
+	-   Character casing: types and methods made **PascalCase**.
 	-   Formatted all other elements of the source code according to the best practices introduced in the course “[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)”.
 
 3.  Renamed variables:
@@ -31,6 +32,7 @@
 	-   In class `BoardGenerator`: `randNumber` to `randomNumber`.
 	-   In class `BoardGenerator`: `tempByte` to `currentNumber`.
 	-   In class `Player`: `val` to `value`.
+	-   In class `GameEngine`: `matrix` to `playboard`.
 
 4.  Introduced constants:
 	-   private const byte `MinRandomNumber` = 1;
@@ -51,11 +53,10 @@ Console.Write("   "); // some trinket stuff again
   }
  Console.WriteLine();
 ```
-
 	- Removed comments.`// trinket stuff for printMatrix() till here`
    
 
-6.  **Single responsibility**. Introduced class `MatrixGenerator` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
+6.  **Single responsibility**. Introduced class `Board` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
 7.  Renamed method bool `doit` to `CheckIfIsWinner`.
 8.  Renamed class `Game` to `PrintingManager`.
 9.  Introduced class `ScoreBoard` and moved all related functionality in it.
@@ -64,10 +65,10 @@ Console.Write("   "); // some trinket stuff again
 	-   Add properties to private fields.
 	-   Change the constructor(this).
 	-   Rename private field val to Value and asign this.
+	   
+11.  **Creational Pattern - Factory Method** Build different size boards.Manufacturer/Products folder.  
+	- Add constructor in class `Board`.
+	- Correct `GameEngine.cs` if statements to work with bigger boards.
 
-11.  
-
-
-
-
-
+12. **Creational Pattern - Singleton** Public seald class `PrintingManager.cs`.
+13. **Structural - Bridge** .

@@ -3,10 +3,30 @@
     using System;
     using System.Text;
 
-    public abstract class PrintingManager
+    public sealed class PrintingManager
     {
-        public static void PrintMatrix(byte[,] matrix)
+        private static PrintingManager printingManagerInstance;
+
+        private PrintingManager()
         {
+        }
+
+        public static PrintingManager Instance
+        {
+            get
+            {
+                if (printingManagerInstance == null)
+                {
+                    printingManagerInstance = new PrintingManager();
+                }
+
+                return printingManagerInstance;
+            }
+        }
+
+        public void PrintMatrix(byte[,] matrix)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("    ");
             for (byte column = 0; column < matrix.GetLongLength(1); column++)
             {
@@ -27,8 +47,9 @@
                         Console.Write("  ");
                         continue;
                     }
-
+                    Console.ForegroundColor = (ConsoleColor)((matrix[i, j]) % 16);
                     Console.Write(matrix[i, j] + " ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                 }
 
                 Console.Write("| ");

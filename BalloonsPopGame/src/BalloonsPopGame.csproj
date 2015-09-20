@@ -43,7 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BalloonsPopsGame.cs" />
+    <Compile Include="BaloonsCharacter\Character.cs" />
+    <Compile Include="BaloonsCharacter\CharacterA.cs" />
+    <Compile Include="BaloonsCharacter\CharacterB.cs" />
+    <Compile Include="BaloonsCharacter\CharacterC.cs" />
+    <Compile Include="BaloonsCharacter\CharacterD.cs" />
+    <Compile Include="BaloonsCharacter\CharacterE.cs" />
+    <Compile Include="BaloonsCharacter\CharacterFactory.cs" />
+    <Compile Include="GameStart.cs" />
     <Compile Include="Manufacturers\TelerikSoft.cs" />
     <Compile Include="Products\Board10x10.cs" />
     <Compile Include="Products\Board.cs" />
@@ -52,6 +59,7 @@
     <Compile Include="Manufacturers\Manufacturer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PrintingManager.cs" />
+    <Compile Include="Products\Board8x10.cs" />
     <Compile Include="ScoreBoard.cs" />
     <Compile Include="Winner.cs" />
   </ItemGroup>

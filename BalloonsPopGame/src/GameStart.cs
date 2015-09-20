@@ -5,7 +5,7 @@
     using BalloonsPopGame.Srs.Manufacturers;
     using BalloonsPopGame.Srs.Products;
 
-    internal class BalloonsPopsGame
+    internal class GameStart
     {
         private const byte ScoreBoardRows = 5;
         private const byte ScoreBoardCols = 2;
@@ -15,12 +15,16 @@
         private static void Main()
         {
             string[,] topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
+            //Factory Method
             //Manufacturer manufacturer = new TelerikSoft();
             //byte[,] playBoard = manufacturer.GenerateBoard();
             Board board = new Board(PlayBoardRows, PlayBoardCols);
             byte[,] playBoard = board.GenerateBoard();
-            PrintingManager.PrintMatrix(playBoard);
 
+            //Singleton
+            var log = PrintingManager.Instance;
+            log.PrintMatrix(playBoard);
+            
             GameEngine engine = new GameEngine();
             engine.Start(topFivePlayers, playBoard);
 
