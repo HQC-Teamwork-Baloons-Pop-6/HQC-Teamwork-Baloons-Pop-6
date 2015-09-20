@@ -4,7 +4,7 @@
 
     public class CharacterFactory
     {
-        private readonly Dictionary<char, Character> characters = new Dictionary<char, Character>();
+        private readonly Dictionary<byte, Character> characters = new Dictionary<byte, Character>();
 
         public int NumberOfObjects
         {
@@ -14,9 +14,9 @@
             }
         }
 
-        public Character GetCharacter(char key)
+        public Character GetCharacter(byte key)
         {
-            // Uses "lazy initialization"
+            // Lazy initialization
             Character character = null;
             if (this.characters.ContainsKey(key))
             {
@@ -26,20 +26,17 @@
             {
                 switch (key)
                 {
-                    case 'A':
+                    case 1:
                         character = new CharacterA();
                         break;
-                    case 'B':
+                    case 2:
                         character = new CharacterB();
                         break;
-                    case 'C':
+                    case 3:
                         character = new CharacterC();
                         break;
-                    case 'D':
+                    case 4:
                         character = new CharacterD();
-                        break;
-                    case 'E':
-                        character = new CharacterE();
                         break;
                 }
 

@@ -1,11 +1,19 @@
 ﻿namespace BalloonsPopGame.Srs
 {
+    using BalloonsPopGame.Srs.Formatters;
     using System;
     using System.Collections.Generic;
 
-    public abstract class ScoreBoard
+    internal class ScoreBoard
     {
-        public static void PrintTopFive(string[,] playersTable)
+        internal readonly IFormatter Formatter;
+
+        internal ScoreBoard(IFormatter formatter)
+        {
+            this.Formatter = formatter;
+        }
+
+        public void PrintTopFive(string[,] playersTable)
         {
             List<Player> finalScore = new List<Player>();
 
@@ -23,8 +31,8 @@
             Console.WriteLine("---------TOP FIVE CHART-----------");
             for (int i = 0; i < finalScore.Count; ++i)
             {
-                Player slot = finalScore[i];
-                Console.WriteLine("{2}.   {0} with {1} moves.", slot.Name, slot.Value, i + 1);
+                Player player = finalScore[i];
+                Console.WriteLine(this.Formatter.Format(i + 1, player.Name, player.Value));
             }
 
             Console.WriteLine("----------------------------------");

@@ -4,15 +4,15 @@
 
     public abstract class GameLogic
     {
-        public static bool CheckIfEmptyElseChangeCurrentPlayBoard(byte[,] currentPlayBoard, int rowAtm, int columnAtm)
+        public static bool CheckIfEmptyElseChangeCurrentPlayBoard(char[,] currentPlayBoard, int rowAtm, int columnAtm)
         {
-            if (currentPlayBoard[rowAtm, columnAtm] == 0)
+            if (currentPlayBoard[rowAtm, columnAtm] == '0')
             {
                 return true;
             }
 
-            byte searchedTarget = currentPlayBoard[rowAtm, columnAtm];
-            currentPlayBoard[rowAtm, columnAtm] = 0;
+            char searchedTarget = currentPlayBoard[rowAtm, columnAtm];
+            currentPlayBoard[rowAtm, columnAtm] = '0';
 
             CheckLeft(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
             CheckRight(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
@@ -22,7 +22,7 @@
             return false;
         }
 
-        private static void CheckLeft(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckLeft(char[,] matrix, int row, int column, char searchedItem)
         {
             int newRow = row;
             int newColumn = column - 1;
@@ -30,7 +30,7 @@
             {
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
-                    matrix[newRow, newColumn] = 0;
+                    matrix[newRow, newColumn] = '0';
                     CheckLeft(matrix, newRow, newColumn, searchedItem);
                 }
                 else
@@ -44,7 +44,7 @@
             }
         }
 
-        private static void CheckRight(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckRight(char[,] matrix, int row, int column, char searchedItem)
         {
             int newRow = row;
             int newColumn = column + 1;
@@ -52,7 +52,7 @@
             {
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
-                    matrix[newRow, newColumn] = 0;
+                    matrix[newRow, newColumn] = '0';
                     CheckRight(matrix, newRow, newColumn, searchedItem);
                 }
                 else
@@ -66,7 +66,7 @@
             }
         }
 
-        private static void CheckUp(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckUp(char[,] matrix, int row, int column, char searchedItem)
         {
             int newRow = row + 1;
             int newColumn = column;
@@ -74,7 +74,7 @@
             {
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
-                    matrix[newRow, newColumn] = 0;
+                    matrix[newRow, newColumn] = '0';
                     CheckUp(matrix, newRow, newColumn, searchedItem);
                 }
                 else
@@ -88,7 +88,7 @@
             }
         }
 
-        private static void CheckDown(byte[,] matrix, int row, int column, int searchedItem)
+        private static void CheckDown(char[,] matrix, int row, int column, char searchedItem)
         {
             int newRow = row - 1;
             int newColumn = column;
@@ -96,7 +96,7 @@
             {
                 if (matrix[newRow, newColumn] == searchedItem)
                 {
-                    matrix[newRow, newColumn] = 0;
+                    matrix[newRow, newColumn] = '0';
                     CheckDown(matrix, newRow, newColumn, searchedItem);
                 }
                 else

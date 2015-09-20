@@ -4,6 +4,6 @@
 
     public abstract class Manufacturer
     {
-        public abstract byte[,] GenerateBoard();
+        public abstract char[,] GenerateBoard();
     }
 }

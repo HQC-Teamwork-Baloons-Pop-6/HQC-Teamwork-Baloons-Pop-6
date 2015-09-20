@@ -24,7 +24,7 @@
             }
         }
 
-        public void PrintMatrix(byte[,] matrix)
+        public void PrintMatrix(char[,] matrix)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("    ");
@@ -42,7 +42,7 @@
                 Console.Write(i + " | ");
                 for (byte j = 0; j < matrix.GetLongLength(1); j++)
                 {
-                    if (matrix[i, j] == 0)
+                    if (matrix[i, j] == '0')
                     {
                         Console.Write("  ");
                         continue;
@@ -59,7 +59,7 @@
             PrintLine(matrix);
         }
 
-        private static void PrintLine(byte[,] matrix)
+        private static void PrintLine(char[,] matrix)
         {
             StringBuilder line = new StringBuilder();
             line.Append("   ");

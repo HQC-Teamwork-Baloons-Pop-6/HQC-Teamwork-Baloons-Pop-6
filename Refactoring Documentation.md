@@ -33,6 +33,7 @@
 	-   In class `BoardGenerator`: `tempByte` to `currentNumber`.
 	-   In class `Player`: `val` to `value`.
 	-   In class `GameEngine`: `matrix` to `playboard`.
+	-   In class `Player`: `slot` to `player`.
 
 4.  Introduced constants:
 	-   private const byte `MinRandomNumber` = 1;
@@ -66,9 +67,25 @@ Console.Write("   "); // some trinket stuff again
 	-   Change the constructor(this).
 	-   Rename private field val to Value and asign this.
 	   
-11.  **Creational Pattern - Factory Method** Build different size boards.Manufacturer/Products folder.  
+11.  **Creational Pattern - Factory Method** *The factory method pattern is a design pattern that allows for the creation of objects without specifying the type of object that is to be created in code. A factory class contains a method that allows determination of the created type at run-time.* 
+	- Build different size boards.Manufacturer/Products folder.  
 	- Add constructor in class `Board`.
 	- Correct `GameEngine.cs` if statements to work with bigger boards.
 
-12. **Creational Pattern - Singleton** Public seald class `PrintingManager.cs`.
-13. **Structural - Bridge** .
+12. **Creational Pattern - Singleton** *The singleton pattern is a design pattern that is used to ensure that a class can only have one concurrent instance. Whenever additional objects of a singleton class are required, the previously created, single instance is provided.*
+	- Public sealed class `PrintingManager.cs`.
+13. **Creational Pattern - Lazy Initialisation** *Tactic of delaying the creation of an object, the calculation of a value, or some other expensive process until the first time it is needed* 
+	- Create different characters for baloons.
+	- BallonsCharacter folder `CharacterFactory.cs`.
+14. **Structural - Flyweight** *The flyweight pattern is a design pattern that is used to minimize resource usage when working with very large numbers of objects. When creating many thousands of identical objects, stateless flyweights can lower the memory used to a manageable level.*
+
+	- Create different characters for baloons.
+	- Change playboard type from `byte` to `char`BallonsCharacter folder
+15. **Structural - Bridge** *The bridge pattern is a design pattern that separates the abstract elements of a class from its technical implementation. This provides a cleaner implementation of real-world objects and allows the implementation details to be changed easily.*
+
+	- Print scoreboard with different formatters.
+	- Formatters folder => `ScoreBoard.cs`.
+16. **Behavioral - Strategy** The strategy pattern is a design pattern that allows a set of similar algorithms to be defined and encapsulated in their own classes. The algorithm to be used for a particular purpose may then be selected at run-time according to your requirements.
+
+	- Scoreboard print to file or console.
+17. 

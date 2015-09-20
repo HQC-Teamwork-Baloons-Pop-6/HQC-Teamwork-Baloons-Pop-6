@@ -4,7 +4,7 @@
 
     public class TelerikSoft : Manufacturer
     {
-        public override byte[,] GenerateBoard()
+        public override char[,] GenerateBoard()
         {
             var board = new Board10x10();
             return board.GenerateBoard();

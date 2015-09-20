@@ -5,10 +5,10 @@
 
     public abstract class Winner
     {
-        public static bool CheckIfIsWinner(byte[,] matrix)
+        public static bool CheckIfIsWinner(char[,] matrix)
         {
             bool isWinner = true;
-            Stack<byte> stek = new Stack<byte>();
+            Stack<char> stek = new Stack<char>();
 
             int rowLenght = matrix.GetLength(1);
             int columnLenght = matrix.GetLength(0);
@@ -16,7 +16,7 @@
             {
                 for (int i = 0; i < columnLenght; i++)
                 {
-                    if (matrix[i, j] != 0)
+                    if (matrix[i, j] != '0')
                     {
                         isWinner = false;
                         stek.Push(matrix[i, j]);
@@ -31,14 +31,14 @@
                     }
                     catch (Exception)
                     {
-                        matrix[k, j] = 0;
+                        matrix[k, j] = '0';
                     }
                 }
             }
 
             return isWinner;
         }
-        
+
         public static bool SignIfSkilled(string[,] chart, int points)
         {
             bool skilled = false;

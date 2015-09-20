@@ -48,8 +48,9 @@
     <Compile Include="BaloonsCharacter\CharacterB.cs" />
     <Compile Include="BaloonsCharacter\CharacterC.cs" />
     <Compile Include="BaloonsCharacter\CharacterD.cs" />
-    <Compile Include="BaloonsCharacter\CharacterE.cs" />
     <Compile Include="BaloonsCharacter\CharacterFactory.cs" />
+    <Compile Include="Formatters\ScoreBoardFormatter.cs" />
+    <Compile Include="Formatters\IFormatter.cs" />
     <Compile Include="GameStart.cs" />
     <Compile Include="Manufacturers\TelerikSoft.cs" />
     <Compile Include="Products\Board10x10.cs" />

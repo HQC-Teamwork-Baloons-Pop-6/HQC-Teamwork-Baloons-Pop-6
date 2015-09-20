@@ -2,10 +2,11 @@
 {
     using System;
     using BalloonsPopGame.Srs.Products;
+    using BalloonsPopGame.Srs.Formatters;
 
     public class GameEngine
     {
-        public void Start(string[,] topFive, byte[,] playBoard)
+        public void Start(string[,] topFive, char[,] playBoard)
         {
             string currentCommand = null;
             int userMoves = 0;
@@ -20,11 +21,13 @@
             }
         }
 
-        private static void ProcessGame(string currentCommand, string[,] topFive, ref byte[,] playBoard, ref int userMoves)
+        private static void ProcessGame(string currentCommand, string[,] topFive, ref char[,] playBoard, ref int userMoves)
         {
             byte rowLenght = (byte)playBoard.GetLength(0);
             byte columnLenght = (byte)playBoard.GetLength(1);
             Board board = new Board(rowLenght, columnLenght);
+            ScoreBoardFormatter formatter = new ScoreBoardFormatter();
+            ScoreBoard scoreBoard = new ScoreBoard(formatter);
             var log = PrintingManager.Instance;
 
             switch (currentCommand)
@@ -36,7 +39,7 @@
                     break;
 
                 case "TOP":
-                    ScoreBoard.PrintTopFive(topFive);
+                    scoreBoard.PrintTopFive(topFive);
                     break;
 
                 case "EXIT":
@@ -67,7 +70,7 @@
                             Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
                             if (Winner.SignIfSkilled(topFive, userMoves))
                             {
-                                ScoreBoard.PrintTopFive(topFive);
+                                scoreBoard.PrintTopFive(topFive);
                             }
                             else
                             {

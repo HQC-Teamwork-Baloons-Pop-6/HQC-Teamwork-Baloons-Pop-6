@@ -17,9 +17,9 @@
             string[,] topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
             //Factory Method
             //Manufacturer manufacturer = new TelerikSoft();
-            //byte[,] playBoard = manufacturer.GenerateBoard();
+            //char[,] playBoard = manufacturer.GenerateBoard();
             Board board = new Board(PlayBoardRows, PlayBoardCols);
-            byte[,] playBoard = board.GenerateBoard();
+            char[,] playBoard = board.GenerateBoard();
 
             //Singleton
             var log = PrintingManager.Instance;
