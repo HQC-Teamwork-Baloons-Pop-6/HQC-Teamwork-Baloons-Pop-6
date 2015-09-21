@@ -55,8 +55,6 @@ Console.Write("   "); // some trinket stuff again
  Console.WriteLine();
 ```
 	- Removed comments.`// trinket stuff for printMatrix() till here`
-   
-
 6.  **Single responsibility**. Introduced class `Board` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
 7.  Renamed method bool `doit` to `CheckIfIsWinner`.
 8.  Renamed class `Game` to `PrintingManager`.
