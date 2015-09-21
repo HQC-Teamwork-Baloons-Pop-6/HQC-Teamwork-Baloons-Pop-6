@@ -1,7 +1,6 @@
 Baloons-Pop-6
 =============================================
-
-----------
+ [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/jku85e7p6yafriub/branch/master?svg=true)](https://ci.appveyor.com/project/dchakov/hqc-teamwork-baloons-pop-6/branch/master)
 
 ### Contributors ###
 
@@ -13,7 +12,7 @@ Baloons-Pop-6
 
 ###Requirements###
 
-[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Documentation.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md)
+[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md)
 
 ### Refactoring Documentation ###
 
@@ -21,4 +20,8 @@ Baloons-Pop-6
 
 ### Plan ###
 
-[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Documentation.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Plan.md)
+[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Plan.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Plan.md)
+
+###Description###
+
+[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/HQC-Team-Project-Balloons-Pops.docx](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/HQC-Team-Project-Balloons-Pops.docx)
