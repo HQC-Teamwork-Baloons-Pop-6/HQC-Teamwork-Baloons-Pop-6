@@ -87,3 +87,6 @@ Console.Write("   "); // some trinket stuff again
 
 	- Scoreboard print to file or console.
 17. 
+
+
+Added AppVeyor for testing.

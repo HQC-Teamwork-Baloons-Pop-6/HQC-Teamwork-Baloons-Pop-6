@@ -2,9 +2,9 @@
 {
     using System;
 
-    public class CharacterA : Character
+    public class BaloonA : Baloon
     {
-        public CharacterA()
+        public BaloonA()
         {
             this.Symbol = 'A';
             this.Color = "Cyan";

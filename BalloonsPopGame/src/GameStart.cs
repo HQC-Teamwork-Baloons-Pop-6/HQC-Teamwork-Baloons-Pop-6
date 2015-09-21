@@ -15,15 +15,16 @@
         private static void Main()
         {
             string[,] topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
-            //Factory Method
-            //Manufacturer manufacturer = new TelerikSoft();
-            //char[,] playBoard = manufacturer.GenerateBoard();
+
+            // Factory Method
+            // Manufacturer manufacturer = new TelerikSoft();
+            // char[,] playBoard = manufacturer.GenerateBoard();
             Board board = new Board(PlayBoardRows, PlayBoardCols);
             char[,] playBoard = board.GenerateBoard();
 
-            //Singleton
-            var log = PrintingManager.Instance;
-            log.PrintMatrix(playBoard);
+            // Singleton
+            var printer = PrintingManager.Instance;
+            printer.PrintPlayBoard(playBoard);
             
             GameEngine engine = new GameEngine();
             engine.Start(topFivePlayers, playBoard);

@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPopGame.Srs.BaloonsCharacter
 {
-    public abstract class Character
+    public abstract class Baloon
     {
         public char Symbol { get; set; }
 

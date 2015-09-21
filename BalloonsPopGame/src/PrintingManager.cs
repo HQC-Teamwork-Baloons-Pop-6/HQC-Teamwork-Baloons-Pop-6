@@ -24,31 +24,32 @@
             }
         }
 
-        public void PrintMatrix(char[,] matrix)
+        public void PrintPlayBoard(char[,] playBoard)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("    ");
-            for (byte column = 0; column < matrix.GetLongLength(1); column++)
+            for (byte column = 0; column < playBoard.GetLongLength(1); column++)
             {
                 Console.Write(column + " ");
             }
 
             Console.WriteLine();
 
-            PrintLine(matrix);
+            PrintLine(playBoard);
 
-            for (byte i = 0; i < matrix.GetLongLength(0); i++)
+            for (byte i = 0; i < playBoard.GetLongLength(0); i++)
             {
                 Console.Write(i + " | ");
-                for (byte j = 0; j < matrix.GetLongLength(1); j++)
+                for (byte j = 0; j < playBoard.GetLongLength(1); j++)
                 {
-                    if (matrix[i, j] == '0')
+                    if (playBoard[i, j] == '0')
                     {
                         Console.Write("  ");
                         continue;
                     }
-                    Console.ForegroundColor = (ConsoleColor)((matrix[i, j]) % 16);
-                    Console.Write(matrix[i, j] + " ");
+
+                    Console.ForegroundColor = (ConsoleColor)(playBoard[i, j] % 16);
+                    Console.Write(playBoard[i, j] + " ");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                 }
 
@@ -56,7 +57,7 @@
                 Console.WriteLine();
             }
 
-            PrintLine(matrix);
+            PrintLine(playBoard);
         }
 
         private static void PrintLine(char[,] matrix)

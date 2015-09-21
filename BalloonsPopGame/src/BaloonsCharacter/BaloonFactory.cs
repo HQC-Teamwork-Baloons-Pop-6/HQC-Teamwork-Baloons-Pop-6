@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
 
-    public class CharacterFactory
+    public class BaloonFactory
     {
-        private readonly Dictionary<byte, Character> characters = new Dictionary<byte, Character>();
+        private readonly Dictionary<byte, Baloon> characters = new Dictionary<byte, Baloon>();
 
         public int NumberOfObjects
         {
@@ -14,10 +14,10 @@
             }
         }
 
-        public Character GetCharacter(byte key)
+        public Baloon GetCharacter(byte key)
         {
             // Lazy initialization
-            Character character = null;
+            Baloon character = null;
             if (this.characters.ContainsKey(key))
             {
                 character = this.characters[key];
@@ -27,16 +27,16 @@
                 switch (key)
                 {
                     case 1:
-                        character = new CharacterA();
+                        character = new BaloonA();
                         break;
                     case 2:
-                        character = new CharacterB();
+                        character = new BaloonB();
                         break;
                     case 3:
-                        character = new CharacterC();
+                        character = new BaloonC();
                         break;
                     case 4:
-                        character = new CharacterD();
+                        character = new BaloonD();
                         break;
                 }
 

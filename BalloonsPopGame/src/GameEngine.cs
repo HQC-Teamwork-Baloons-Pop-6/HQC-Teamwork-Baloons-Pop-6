@@ -1,8 +1,9 @@
 ﻿namespace BalloonsPopGame.Srs
 {
     using System;
-    using BalloonsPopGame.Srs.Products;
     using BalloonsPopGame.Srs.Formatters;
+    using BalloonsPopGame.Srs.Logger;
+    using BalloonsPopGame.Srs.Products;
 
     public class GameEngine
     {
@@ -27,14 +28,18 @@
             byte columnLenght = (byte)playBoard.GetLength(1);
             Board board = new Board(rowLenght, columnLenght);
             ScoreBoardFormatter formatter = new ScoreBoardFormatter();
-            ScoreBoard scoreBoard = new ScoreBoard(formatter);
+
+            // FileLogger fileLogger = new FileLogger("scorebord.txt", formatter);
+            ConsoleLogger consoleLogger = new ConsoleLogger(formatter);
+            ScoreBoard scoreBoard = new ScoreBoard(consoleLogger);
+
             var log = PrintingManager.Instance;
 
             switch (currentCommand)
             {
                 case "RESTART":
                     playBoard = board.GenerateBoard();
-                    log.PrintMatrix(playBoard);
+                    log.PrintPlayBoard(playBoard);
                     userMoves = 0;
                     break;
 
@@ -81,7 +86,7 @@
                             userMoves = 0;
                         }
 
-                        log.PrintMatrix(playBoard);
+                        log.PrintPlayBoard(playBoard);
                         break;
                     }
                     else

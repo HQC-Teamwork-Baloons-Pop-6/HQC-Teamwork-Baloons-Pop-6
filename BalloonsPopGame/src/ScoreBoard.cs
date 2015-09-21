@@ -1,16 +1,16 @@
 ﻿namespace BalloonsPopGame.Srs
 {
-    using BalloonsPopGame.Srs.Formatters;
     using System;
     using System.Collections.Generic;
+    using BalloonsPopGame.Srs.Logger;
 
     internal class ScoreBoard
     {
-        internal readonly IFormatter Formatter;
+        internal readonly ILogger Logger;
 
-        internal ScoreBoard(IFormatter formatter)
+        internal ScoreBoard(ILogger logger)
         {
-            this.Formatter = formatter;
+            this.Logger = logger;
         }
 
         public void PrintTopFive(string[,] playersTable)
@@ -28,14 +28,7 @@
             }
 
             finalScore.Sort();
-            Console.WriteLine("---------TOP FIVE CHART-----------");
-            for (int i = 0; i < finalScore.Count; ++i)
-            {
-                Player player = finalScore[i];
-                Console.WriteLine(this.Formatter.Format(i + 1, player.Name, player.Value));
-            }
-
-            Console.WriteLine("----------------------------------");
+            this.Logger.Log(finalScore);
         }
     }
 }

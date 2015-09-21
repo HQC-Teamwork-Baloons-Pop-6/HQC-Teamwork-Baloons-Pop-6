@@ -2,12 +2,12 @@
 {
     using System;
 
-    public class CharacterC : Character
+    public class BaloonB : Baloon
     {
-        public CharacterC()
+        public BaloonB()
         {
-            this.Symbol = 'C';
-            this.Color = "Red";
+            this.Symbol = 'B';
+            this.Color = "Magenta";
         }
 
         public override void Display(int fontSize)

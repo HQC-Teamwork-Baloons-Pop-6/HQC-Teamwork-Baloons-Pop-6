@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPopGame.Srs.Products
 {
-    using BalloonsPopGame.Srs.BaloonsCharacter;
     using System;
+    using BalloonsPopGame.Srs.BaloonsCharacter;
 
     public class Board
     {
@@ -9,14 +9,17 @@
         private const byte MaxRandomNumber = 5;
         private byte rows;
         private byte columns;
-        //Flyweight
-        CharacterFactory characterFactory = new CharacterFactory();
+
+        // Flyweight
+        private BaloonFactory baloonFactory;
 
         public Board(byte rows, byte columns)
         {
             this.rows = rows;
             this.columns = columns;
+            this.baloonFactory = new BaloonFactory();
         }
+
         public char[,] GenerateBoard()
         {
             char[,] board = new char[this.rows, this.columns];
@@ -26,7 +29,7 @@
                 for (byte column = 0; column < this.columns; column++)
                 {
                     byte currentNumber = (byte)randomNumber.Next(MinRandomNumber, MaxRandomNumber);
-                    board[row, column] = characterFactory.GetCharacter(currentNumber).Symbol;
+                    board[row, column] = this.baloonFactory.GetCharacter(currentNumber).Symbol;
                 }
             }
 

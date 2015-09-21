@@ -43,15 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaloonsCharacter\Character.cs" />
-    <Compile Include="BaloonsCharacter\CharacterA.cs" />
-    <Compile Include="BaloonsCharacter\CharacterB.cs" />
-    <Compile Include="BaloonsCharacter\CharacterC.cs" />
-    <Compile Include="BaloonsCharacter\CharacterD.cs" />
-    <Compile Include="BaloonsCharacter\CharacterFactory.cs" />
+    <Compile Include="BaloonsCharacter\Baloon.cs" />
+    <Compile Include="BaloonsCharacter\BaloonA.cs" />
+    <Compile Include="BaloonsCharacter\BaloonB.cs" />
+    <Compile Include="BaloonsCharacter\BaloonC.cs" />
+    <Compile Include="BaloonsCharacter\BaloonD.cs" />
+    <Compile Include="BaloonsCharacter\BaloonFactory.cs" />
     <Compile Include="Formatters\ScoreBoardFormatter.cs" />
     <Compile Include="Formatters\IFormatter.cs" />
     <Compile Include="GameStart.cs" />
+    <Compile Include="Logger\ConsoleLogger.cs" />
+    <Compile Include="Logger\FileLogger.cs" />
+    <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Manufacturers\TelerikSoft.cs" />
     <Compile Include="Products\Board10x10.cs" />
     <Compile Include="Products\Board.cs" />
