@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPopGame.Srs.Manufacturers
 {
-    using BalloonsPopGame.Srs.Products;
+    using BalloonsPopGame.Srs.Boards;
 
     public abstract class Manufacturer
     {

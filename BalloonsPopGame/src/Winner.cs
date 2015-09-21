@@ -39,6 +39,7 @@
             return isWinner;
         }
 
+        // TODO Make it work with List<Player>
         public static bool SignIfSkilled(string[,] chart, int points)
         {
             bool skilled = false;

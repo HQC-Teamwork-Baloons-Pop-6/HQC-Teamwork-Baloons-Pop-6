@@ -1,4 +1,4 @@
-﻿namespace BalloonsPopGame.Srs.Products
+﻿namespace BalloonsPopGame.Srs.Boards
 {
     using System;
     using BalloonsPopGame.Srs.BaloonsCharacter;

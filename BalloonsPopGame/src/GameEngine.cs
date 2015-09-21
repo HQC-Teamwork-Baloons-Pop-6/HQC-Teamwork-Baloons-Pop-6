@@ -1,45 +1,65 @@
 ﻿namespace BalloonsPopGame.Srs
 {
     using System;
+    using System.Collections.Generic;
+    using BalloonsPopGame.Srs.Boards;
     using BalloonsPopGame.Srs.Formatters;
     using BalloonsPopGame.Srs.Logger;
-    using BalloonsPopGame.Srs.Products;
+    using BalloonsPopGame.Srs.Manufacturers;
 
     public class GameEngine
     {
-        public void Start(string[,] topFive, char[,] playBoard)
+        private const byte ScoreBoardRows = 5;
+        private const byte ScoreBoardCols = 2;
+        private const byte PlayBoardRows = 5;
+        private const byte PlayBoardCols = 10;
+
+        public void Start()
         {
+            // Factory Method
+            // Manufacturer manufacturer = new TelerikSoft();
+            // char[,] playBoard = manufacturer.GenerateBoard();
+            Board board = new Board(PlayBoardRows, PlayBoardCols);
+            char[,] playBoard = board.GenerateBoard();
+
+            // Singleton
+            var printer = PrintingManager.Instance;
+            printer.PrintPlayBoard(playBoard);
+
+            // TODO topfive => List<Players>
+            string[,] topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
             string currentCommand = null;
             int userMoves = 0;
-
             while (currentCommand != "EXIT")
             {
                 Console.WriteLine("Enter a row and column: ");
                 currentCommand = Console.ReadLine();
                 currentCommand = currentCommand.ToUpper().Trim();
 
-                ProcessGame(currentCommand, topFive, ref playBoard, ref userMoves);
+                this.ProcessGame(currentCommand, topFivePlayers, ref playBoard, ref userMoves);
             }
         }
 
-        private static void ProcessGame(string currentCommand, string[,] topFive, ref char[,] playBoard, ref int userMoves)
+        // TODO topfive => List<Players>
+        private void ProcessGame(string currentCommand, string[,] topFive, ref char[,] playBoard, ref int userMoves)
         {
             byte rowLenght = (byte)playBoard.GetLength(0);
             byte columnLenght = (byte)playBoard.GetLength(1);
             Board board = new Board(rowLenght, columnLenght);
+
             ScoreBoardFormatter formatter = new ScoreBoardFormatter();
 
             // FileLogger fileLogger = new FileLogger("scorebord.txt", formatter);
             ConsoleLogger consoleLogger = new ConsoleLogger(formatter);
             ScoreBoard scoreBoard = new ScoreBoard(consoleLogger);
 
-            var log = PrintingManager.Instance;
+            var printer = PrintingManager.Instance;
 
             switch (currentCommand)
             {
                 case "RESTART":
                     playBoard = board.GenerateBoard();
-                    log.PrintPlayBoard(playBoard);
+                    printer.PrintPlayBoard(playBoard);
                     userMoves = 0;
                     break;
 
@@ -51,18 +71,16 @@
                     break;
 
                 default:
-                    if ((currentCommand.Length == 3) && (currentCommand[0] >= '0' && currentCommand[0] <= '9') && (currentCommand[2] >= '0' && currentCommand[2] <= '9') && (currentCommand[1] == ' ' || currentCommand[1] == '.' || currentCommand[1] == ','))
+                    if (this.IsValidInputCommand(currentCommand))
                     {
-                        int userRow, userColumn;
-                        userRow = int.Parse(currentCommand[0].ToString());
+                        int userRow = int.Parse(currentCommand[0].ToString());
                         if (userRow > rowLenght - 1)
                         {
                             Console.WriteLine("Wrong input ! Try Again ! ");
                             return;
                         }
 
-                        userColumn = int.Parse(currentCommand[2].ToString());
-
+                        int userColumn = int.Parse(currentCommand[2].ToString());
                         if (GameLogic.CheckIfEmptyElseChangeCurrentPlayBoard(playBoard, userRow, userColumn))
                         {
                             Console.WriteLine("cannot pop missing ballon!");
@@ -86,7 +104,7 @@
                             userMoves = 0;
                         }
 
-                        log.PrintPlayBoard(playBoard);
+                        printer.PrintPlayBoard(playBoard);
                         break;
                     }
                     else
@@ -95,6 +113,14 @@
                         break;
                     }
             }
+        }
+
+        private bool IsValidInputCommand(string currentCommand)
+        {
+            return (currentCommand.Length == 3) &&
+                   (currentCommand[0] >= '0' && currentCommand[0] <= '9') &&
+                   (currentCommand[2] >= '0' && currentCommand[2] <= '9') &&
+                   (currentCommand[1] == ' ' || currentCommand[1] == '.' || currentCommand[1] == ',');
         }
     }
 }

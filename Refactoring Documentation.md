@@ -85,7 +85,7 @@ Console.Write("   "); // some trinket stuff again
 	- Formatters folder => `ScoreBoard.cs`.
 16. **Behavioral - Strategy** The strategy pattern is a design pattern that allows a set of similar algorithms to be defined and encapsulated in their own classes. The algorithm to be used for a particular purpose may then be selected at run-time according to your requirements.
 
-	- Scoreboard print to file or console.
+	- Scoreboard print to file or console.(`ConsoleLogger.cs` ,`FileLogger.cs`)
 17. 
 
 

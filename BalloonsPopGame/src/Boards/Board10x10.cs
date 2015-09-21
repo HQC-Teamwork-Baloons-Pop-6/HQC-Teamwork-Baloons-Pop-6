@@ -1,4 +1,4 @@
-﻿namespace BalloonsPopGame.Srs.Products
+﻿namespace BalloonsPopGame.Srs.Boards
 {
     public class Board10x10 : Board
     {
