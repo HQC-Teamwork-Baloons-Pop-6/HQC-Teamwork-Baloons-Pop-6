@@ -9,10 +9,9 @@
         private const byte MaxRandomNumber = 5;
         private byte rows;
         private byte columns;
-
-        // Flyweight
         private BaloonFactory baloonFactory;
 
+        // Flyweight
         public Board(byte rows, byte columns)
         {
             this.rows = rows;

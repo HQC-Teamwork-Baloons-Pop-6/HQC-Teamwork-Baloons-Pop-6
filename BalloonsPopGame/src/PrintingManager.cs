@@ -48,6 +48,7 @@
                         continue;
                     }
 
+                    // TODO get color from baloon.color
                     Console.ForegroundColor = (ConsoleColor)(playBoard[i, j] % 16);
                     Console.Write(playBoard[i, j] + " ");
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -60,7 +61,7 @@
             PrintLine(playBoard);
         }
 
-        private static void PrintLine(char[,] matrix)
+        private void PrintLine(char[,] matrix)
         {
             StringBuilder line = new StringBuilder();
             line.Append("   ");

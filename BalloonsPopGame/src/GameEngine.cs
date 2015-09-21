@@ -115,7 +115,7 @@
             }
         }
 
-        private bool IsValidInputCommand(string currentCommand)
+        public bool IsValidInputCommand(string currentCommand)
         {
             return (currentCommand.Length == 3) &&
                    (currentCommand[0] >= '0' && currentCommand[0] <= '9') &&

@@ -66,7 +66,7 @@ Console.Write("   "); // some trinket stuff again
 	-   Rename private field val to Value and asign this.
 	   
 11.  **Creational Pattern - Factory Method** *The factory method pattern is a design pattern that allows for the creation of objects without specifying the type of object that is to be created in code. A factory class contains a method that allows determination of the created type at run-time.* 
-	- Build different size boards.Manufacturer/Products folder.  
+	- Build different size boards.Manufacturer/Products folder.**Liskov Substitution Principle** `public override char[,] GenerateBoard()`.
 	- Add constructor in class `Board`.
 	- Correct `GameEngine.cs` if statements to work with bigger boards.
 
@@ -83,10 +83,9 @@ Console.Write("   "); // some trinket stuff again
 
 	- Print scoreboard with different formatters.
 	- Formatters folder => `ScoreBoard.cs`.
-16. **Behavioral - Strategy** The strategy pattern is a design pattern that allows a set of similar algorithms to be defined and encapsulated in their own classes. The algorithm to be used for a particular purpose may then be selected at run-time according to your requirements.
+16. **Behavioral - Strategy** The strategy pattern is a design pattern that allows a set of similar algorithms to be defined and encapsulated in their own classes. The algorithm to be used for a particular purpose may then be selected at run-time according to your requirements.**Open/Close principle** `ScoreBoard(ILogger logger)`.**Interface Segregation** `ILogger.cs`,`IFormatter.cs`.
 
 	- Scoreboard print to file or console.(`ConsoleLogger.cs` ,`FileLogger.cs`)
-17. 
-
-
-Added AppVeyor for testing.
+17. Added AppVeyor for testing.
+18. Introduce method `IsValidInputCommand` in class `gameEngine.cs`
+19.  
