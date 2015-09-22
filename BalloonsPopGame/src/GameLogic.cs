@@ -4,6 +4,7 @@
 
     public abstract class GameLogic
     {
+        // TODO separate two methods ifisEmpty and ModifyCurrentPlayboard
         public static bool CheckIfEmptyElseChangeCurrentPlayBoard(char[,] currentPlayBoard, int rowAtm, int columnAtm)
         {
             if (currentPlayBoard[rowAtm, columnAtm] == '0')

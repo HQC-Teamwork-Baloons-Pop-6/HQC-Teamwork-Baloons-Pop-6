@@ -9,10 +9,5 @@
             this.Symbol = 'D';
             this.Color = "DarkGreen";
         }
-
-        public override void Display(int fontSize)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

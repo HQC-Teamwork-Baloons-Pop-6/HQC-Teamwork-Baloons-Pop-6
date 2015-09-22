@@ -9,10 +9,5 @@
             this.Symbol = 'C';
             this.Color = "Red";
         }
-
-        public override void Display(int fontSize)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

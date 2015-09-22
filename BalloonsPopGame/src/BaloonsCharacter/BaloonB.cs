@@ -9,10 +9,5 @@
             this.Symbol = 'B';
             this.Color = "Magenta";
         }
-
-        public override void Display(int fontSize)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

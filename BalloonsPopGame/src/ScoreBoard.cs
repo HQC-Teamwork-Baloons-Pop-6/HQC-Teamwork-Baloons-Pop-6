@@ -13,6 +13,7 @@
             this.Logger = logger;
         }
 
+        // TODO move printing to printingManager
         public void PrintTopFive(string[,] playersTable)
         {
             List<Player> finalScore = new List<Player>();
