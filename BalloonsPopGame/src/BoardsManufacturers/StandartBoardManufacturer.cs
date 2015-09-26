@@ -1,12 +1,12 @@
-﻿namespace BalloonsPopGame.Srs.Manufacturers
+﻿namespace BalloonsPopGame.Srs.BoardsManufacturers
 {
     using BalloonsPopGame.Srs.Boards;
 
-    public class TelerikSoft : Manufacturer
+    public class StandartBoardManufacturer : Manufacturer
     {
         public override char[,] GenerateBoard()
         {
-            var board = new Board10x10();
+            var board = new Board5x10();
             return board.GenerateBoard();
         }
     }

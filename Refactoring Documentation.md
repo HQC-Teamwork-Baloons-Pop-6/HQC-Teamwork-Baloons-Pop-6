@@ -88,4 +88,8 @@ Console.Write("   "); // some trinket stuff again
 	- Scoreboard print to file or console.(`ConsoleLogger.cs` ,`FileLogger.cs`)
 17. Added AppVeyor for testing.
 18. Introduce method `IsValidInputCommand` in class `gameEngine.cs`
-19.  
+19.  **Behavioral - Command** The command pattern is a design pattern that enables all of the information for a request to be contained within a single object. The command can then be invoked as required, often as part of a batch of queued commands with rollback capabilities.
+	- (Command folder.Introduce `IInputcommand.cs` ,`RestartCommand.cs`,`TopCommand`,`PlayCommand.cs`.
+
+20.  Move `IsValidInputCommand` to a new class `InputCommandValidator.cs`.
+21.  

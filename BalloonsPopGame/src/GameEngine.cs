@@ -4,8 +4,10 @@
     using System.Collections.Generic;
     using BalloonsPopGame.Srs.Boards;
     using BalloonsPopGame.Srs.Formatters;
-    using BalloonsPopGame.Srs.Logger;
-    using BalloonsPopGame.Srs.Manufacturers;
+    using BalloonsPopGame.Srs.ScoreBoardLogger;
+    using BalloonsPopGame.Srs.BoardsManufacturers;
+    using BalloonsPopGame.Srs.Validators;
+    using BalloonsPopGame.Srs.Command;
 
     public class GameEngine
     {
@@ -58,20 +60,22 @@
             switch (currentCommand)
             {
                 case "RESTART":
-                    playBoard = board.GenerateBoard();
-                    printer.PrintPlayBoard(playBoard);
+                    IInputCommand restart = new RestartCommand(playBoard, board, printer);
+                    restart.Execute();
                     userMoves = 0;
                     break;
 
                 case "TOP":
-                    scoreBoard.PrintTopFive(topFive);
+                    IInputCommand topscoreBoard = new TopCommand(scoreBoard,topFive);
+                    topscoreBoard.Execute();
                     break;
 
                 case "EXIT":
                     break;
 
                 default:
-                    if (this.IsValidInputCommand(currentCommand))
+                    InputCommandValidator validator = new InputCommandValidator();
+                    if (validator.IsValidInputCommand(currentCommand))
                     {
                         int userRow = int.Parse(currentCommand[0].ToString());
                         if (userRow > rowLenght - 1)
@@ -113,14 +117,6 @@
                         break;
                     }
             }
-        }
-
-        public bool IsValidInputCommand(string currentCommand)
-        {
-            return (currentCommand.Length == 3) &&
-                   (currentCommand[0] >= '0' && currentCommand[0] <= '9') &&
-                   (currentCommand[2] >= '0' && currentCommand[2] <= '9') &&
-                   (currentCommand[1] == ' ' || currentCommand[1] == '.' || currentCommand[1] == ',');
         }
     }
 }

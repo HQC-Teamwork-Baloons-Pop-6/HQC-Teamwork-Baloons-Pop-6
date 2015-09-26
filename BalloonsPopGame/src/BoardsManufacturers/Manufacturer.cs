@@ -1,4 +1,4 @@
-﻿namespace BalloonsPopGame.Srs.Manufacturers
+﻿namespace BalloonsPopGame.Srs.BoardsManufacturers
 {
     using BalloonsPopGame.Srs.Boards;
 

@@ -1,11 +1,13 @@
-﻿namespace BalloonsPopGame.Srs
+﻿namespace BalloonsPopGame.Srs.ScoreBoardLogger
 {
     using System;
     using System.Collections.Generic;
-    using BalloonsPopGame.Srs.Logger;
+    using BalloonsPopGame.Srs.ScoreBoardLogger;
 
     internal class ScoreBoard
     {
+        private const byte TopFive = 5;
+
         internal readonly ILogger Logger;
 
         internal ScoreBoard(ILogger logger)
@@ -13,12 +15,11 @@
             this.Logger = logger;
         }
 
-        // TODO move printing to printingManager
         public void PrintTopFive(string[,] playersTable)
         {
             List<Player> finalScore = new List<Player>();
 
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < TopFive; ++i)
             {
                 if (playersTable[i, 0] == null)
                 {

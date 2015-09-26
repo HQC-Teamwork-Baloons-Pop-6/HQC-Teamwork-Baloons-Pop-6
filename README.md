@@ -12,16 +12,16 @@ Baloons-Pop-6
 
 ###Requirements###
 
-[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md)
+[Requirements.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md)
 
 ### Refactoring Documentation ###
 
-[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Documentation.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Documentation.md)
+[Refactoring documentation.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Documentation.md)
 
 ### Plan ###
 
-[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Plan.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Plan.md)
+[Refactoring Plan.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Plan.md)
 
 ###Description###
 
-[https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/HQC-Team-Project-Balloons-Pops.docx](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/HQC-Team-Project-Balloons-Pops.docx)
+[HQC-Team-Project-Balloons-Pops.docx](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/HQC-Team-Project-Balloons-Pops.docx)

@@ -1,4 +1,4 @@
-﻿namespace BalloonsPopGame.Srs.Logger
+﻿namespace BalloonsPopGame.Srs.ScoreBoardLogger
 {
     using System.Collections.Generic;
 

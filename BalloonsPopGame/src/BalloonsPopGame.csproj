@@ -50,23 +50,28 @@
     <Compile Include="BaloonsCharacter\BaloonD.cs" />
     <Compile Include="BaloonsCharacter\BaloonFactory.cs" />
     <Compile Include="Boards\Board5x10.cs" />
+    <Compile Include="Command\IInputCommand.cs" />
+    <Compile Include="Command\RestartCommand.cs" />
+    <Compile Include="Command\TopCommand.cs" />
     <Compile Include="Formatters\ScoreBoardFormatter.cs" />
     <Compile Include="Formatters\IFormatter.cs" />
     <Compile Include="GameStart.cs" />
-    <Compile Include="Logger\ConsoleLogger.cs" />
-    <Compile Include="Logger\FileLogger.cs" />
-    <Compile Include="Logger\ILogger.cs" />
-    <Compile Include="Manufacturers\StandartBoardManufacturer.cs" />
-    <Compile Include="Manufacturers\TelerikSoft.cs" />
+    <Compile Include="IPrinterMenager.cs" />
+    <Compile Include="ScoreBoardLogger\ConsoleLogger.cs" />
+    <Compile Include="ScoreBoardLogger\FileLogger.cs" />
+    <Compile Include="ScoreBoardLogger\ILogger.cs" />
+    <Compile Include="BoardsManufacturers\StandartBoardManufacturer.cs" />
+    <Compile Include="BoardsManufacturers\TelerikSoft.cs" />
     <Compile Include="Boards\Board10x10.cs" />
     <Compile Include="Boards\Board.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="GameLogic.cs" />
-    <Compile Include="Manufacturers\Manufacturer.cs" />
+    <Compile Include="BoardsManufacturers\Manufacturer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PrintingManager.cs" />
     <Compile Include="Boards\Board8x10.cs" />
-    <Compile Include="ScoreBoard.cs" />
+    <Compile Include="ScoreBoardLogger\ScoreBoard.cs" />
+    <Compile Include="Validators\InputCommandValidator.cs" />
     <Compile Include="Winner.cs" />
   </ItemGroup>
   <ItemGroup>
