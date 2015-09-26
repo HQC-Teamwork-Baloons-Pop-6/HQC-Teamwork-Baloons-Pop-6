@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPopGame.Srs
 {
-    public interface IPrinterMenager
+    public interface IPrinterManager
     {
         void PrintPlayBoard(char[,] playBoard);
     }

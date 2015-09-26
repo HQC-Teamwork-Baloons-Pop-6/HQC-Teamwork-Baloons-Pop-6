@@ -4,21 +4,20 @@
 
     public class RestartCommand : IInputCommand
     {
-        private char[,] playBoard;
         private Board board;
-        private IPrinterMenager printer;
+        private IPrinterManager printer;
 
-        public RestartCommand(char[,] playBoard, Board board, IPrinterMenager printer)
+        public RestartCommand(Board board, IPrinterManager printer)
         {
-            this.playBoard = playBoard;
             this.board = board;
             this.printer = printer;
         }
 
-        public void Execute()
+        public void Execute(ref char[,] playBoard, ref int userMoves)
         {
-            this.playBoard = this.board.GenerateBoard();
-            this.printer.PrintPlayBoard(this.playBoard);
+            playBoard = this.board.GenerateBoard();
+            this.printer.PrintPlayBoard(playBoard);
+            userMoves = 0;
         }
     }
 }

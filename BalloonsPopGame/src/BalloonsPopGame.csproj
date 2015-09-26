@@ -74,8 +74,9 @@
     <Compile Include="Command\TopCommand.cs" />
     <Compile Include="Formatters\ScoreBoardFormatter.cs" />
     <Compile Include="Formatters\IFormatter.cs" />
+    <Compile Include="GameCommandsEngine.cs" />
     <Compile Include="GameStart.cs" />
-    <Compile Include="IPrinterMenager.cs" />
+    <Compile Include="IPrinterManager.cs" />
     <Compile Include="ScoreBoardLogger\ConsoleLogger.cs" />
     <Compile Include="ScoreBoardLogger\FileLogger.cs" />
     <Compile Include="ScoreBoardLogger\ILogger.cs" />

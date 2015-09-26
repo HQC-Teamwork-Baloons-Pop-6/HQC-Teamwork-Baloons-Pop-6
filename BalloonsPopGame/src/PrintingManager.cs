@@ -3,7 +3,7 @@
     using System;
     using System.Text;
 
-    public sealed class PrintingManager : IPrinterMenager
+    public sealed class PrintingManager : IPrinterManager
     {
         private static PrintingManager printingManagerInstance;
 

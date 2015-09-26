@@ -2,6 +2,6 @@
 {
     public interface IInputCommand
     {
-        void Execute();
+        void Execute(ref char[,] playBoard, ref int userMoves);
     }
 }

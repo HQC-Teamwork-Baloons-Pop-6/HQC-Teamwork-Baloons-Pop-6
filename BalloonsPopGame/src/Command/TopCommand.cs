@@ -14,7 +14,7 @@
             this.topFive = topFive;
         }
 
-        public void Execute()
+        public void Execute(ref char[,] playBoard, ref int userMoves)
         {
             this.scoreBoard.PrintTopFive(this.topFive);
         }
