@@ -1,9 +1,9 @@
 ﻿namespace BalloonsPopGame.Srs.Command
 {
-    using BalloonsPopGame.Srs.ScoreBoardLogger;
     using System;
+    using BalloonsPopGame.Srs.ScoreBoardLogger;
 
-    internal class TopCommand : IInputCommand
+    public class TopCommand : IInputCommand
     {
         private ScoreBoard scoreBoard;
         private string[,] topFive;
@@ -13,6 +13,7 @@
             this.scoreBoard = scoreBoard;
             this.topFive = topFive;
         }
+
         public void Execute()
         {
             this.scoreBoard.PrintTopFive(this.topFive);

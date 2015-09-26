@@ -51,6 +51,7 @@
     <Compile Include="BaloonsCharacter\BaloonFactory.cs" />
     <Compile Include="Boards\Board5x10.cs" />
     <Compile Include="Command\IInputCommand.cs" />
+    <Compile Include="Command\PlayCommand.cs" />
     <Compile Include="Command\RestartCommand.cs" />
     <Compile Include="Command\TopCommand.cs" />
     <Compile Include="Formatters\ScoreBoardFormatter.cs" />

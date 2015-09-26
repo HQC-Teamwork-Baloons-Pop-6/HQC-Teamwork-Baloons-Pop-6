@@ -35,7 +35,7 @@
 
             Console.WriteLine();
 
-            PrintLine(playBoard);
+            this.PrintLine(playBoard);
 
             for (byte i = 0; i < playBoard.GetLongLength(0); i++)
             {
@@ -58,7 +58,7 @@
                 Console.WriteLine();
             }
 
-            PrintLine(playBoard);
+            this.PrintLine(playBoard);
         }
 
         private void PrintLine(char[,] matrix)

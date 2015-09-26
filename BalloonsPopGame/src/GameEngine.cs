@@ -66,7 +66,7 @@
                     break;
 
                 case "TOP":
-                    IInputCommand topscoreBoard = new TopCommand(scoreBoard,topFive);
+                    IInputCommand topscoreBoard = new TopCommand(scoreBoard, topFive);
                     topscoreBoard.Execute();
                     break;
 
@@ -77,6 +77,8 @@
                     InputCommandValidator validator = new InputCommandValidator();
                     if (validator.IsValidInputCommand(currentCommand))
                     {
+                        //IInputCommand play = new PlayCommand(currentCommand, userMoves, playBoard, topFive, scoreBoard, board, printer);
+                        //play.Execute();
                         int userRow = int.Parse(currentCommand[0].ToString());
                         if (userRow > rowLenght - 1)
                         {

@@ -18,7 +18,7 @@
         public void Execute()
         {
             this.playBoard = this.board.GenerateBoard();
-            this.printer.PrintPlayBoard(playBoard);
+            this.printer.PrintPlayBoard(this.playBoard);
         }
     }
 }

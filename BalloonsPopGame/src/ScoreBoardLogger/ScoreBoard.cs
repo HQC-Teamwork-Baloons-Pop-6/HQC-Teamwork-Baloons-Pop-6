@@ -4,11 +4,10 @@
     using System.Collections.Generic;
     using BalloonsPopGame.Srs.ScoreBoardLogger;
 
-    internal class ScoreBoard
+    public class ScoreBoard
     {
-        private const byte TopFive = 5;
-
         internal readonly ILogger Logger;
+        private const byte TopFive = 5;
 
         internal ScoreBoard(ILogger logger)
         {
