@@ -9,8 +9,8 @@ namespace BalloonsPopGame
 
         public NameValuePair(int value, string name)
         {
-            val = value;
-            name = name;
+            this.val = value;
+            this.name = name;
         }
 
         public int CompareTo(NameValuePair other)
