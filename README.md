@@ -10,13 +10,15 @@ Baloons-Pop-6
 3. .
 
 
-###Requirements###
-
-[Requirements.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md)
-
 ### Refactoring Documentation ###
 
 [Refactoring documentation.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Documentation.md)
+
+###XML Documentation###
+[BalloonsPopGame.XML](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Documentation/BalloonsPopGame.XML "BalloonsPopGame.XML")
+
+###CHM Documentation###
+[Documentation.chm](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/tree/master/Documentation/Help)
 
 ### Plan ###
 
@@ -25,3 +27,7 @@ Baloons-Pop-6
 ###Description###
 
 [HQC-Team-Project-Balloons-Pops.docx](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/HQC-Team-Project-Balloons-Pops.docx)
+
+###Requirements###
+
+[Requirements.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Requirements.md)
