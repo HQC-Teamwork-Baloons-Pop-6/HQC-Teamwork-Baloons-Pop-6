@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BalloonsPopGame</name>
+    </assembly>
+    <members>
+        <member name="T:BalloonsPopGame.Srs.Player">
+            <summary>
+            Class containing player info
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Player.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor for palyer
+            </summary>
+            <param name="value"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Player.CompareTo(BalloonsPopGame.Srs.Player)">
+            <summary>
+            Method for compare two players
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
