@@ -4,6 +4,7 @@
 
     public class BaloonB : Baloon
     {
+        // TODO all documentation
         public BaloonB()
         {
             this.Symbol = 'B';

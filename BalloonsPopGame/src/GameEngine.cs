@@ -22,7 +22,6 @@
             var printer = PrintingManager.Instance;
             printer.PrintPlayBoard(playBoard);
 
-            // TODO topfive => List<Players>
             string[,] topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
             string currentCommand = null;
             int userMoves = 0;
