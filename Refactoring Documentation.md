@@ -92,4 +92,5 @@ Console.Write("   "); // some trinket stuff again
 	- (Command folder.Introduce `IInputcommand.cs` ,`RestartCommand.cs`,`TopCommand`,`PlayCommand.cs`.
 
 20.  Move `IsValidInputCommand` to a new class `InputCommandValidator.cs`.
-21.  
+21.  Add default cunstructor ScoreBoard in class `ScoreBoard` with default ConsoleLogger.
+22.  

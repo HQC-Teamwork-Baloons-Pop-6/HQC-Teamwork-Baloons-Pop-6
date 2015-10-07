@@ -1,4 +1,4 @@
-Baloons-Pop-6
+Baloons-Pop-6 / Team Number 1847
 =============================================
  [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/jku85e7p6yafriub/branch/master?svg=true)](https://ci.appveyor.com/project/dchakov/hqc-teamwork-baloons-pop-6/branch/master)
 

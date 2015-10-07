@@ -11,6 +11,7 @@ namespace BalloonsPopGame.Srs
         /// Store for the value property.
         /// </summary>
         private int value;
+
         /// <summary>
         /// Store for the name property.
         /// </summary>

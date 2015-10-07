@@ -2,12 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
+    using BalloonsPopGame.Srs.Formatters;
     using BalloonsPopGame.Srs.ScoreBoardLogger;
-
+   
     public class ScoreBoard
     {
         internal readonly ILogger Logger;
         private const byte TopFive = 5;
+
+        internal ScoreBoard()
+        {
+            this.Logger = new ConsoleLogger(new ScoreBoardFormatter());
+        }
 
         internal ScoreBoard(ILogger logger)
         {
