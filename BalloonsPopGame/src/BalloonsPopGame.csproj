@@ -94,7 +94,7 @@
     <Compile Include="Boards\Board8x10.cs" />
     <Compile Include="ScoreBoardLogger\ScoreBoard.cs" />
     <Compile Include="Validators\InputCommandValidator.cs" />
-    <Compile Include="Winner.cs" />
+    <Compile Include="Validators\WinnerValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

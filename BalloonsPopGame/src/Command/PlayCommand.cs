@@ -32,17 +32,27 @@
             }
 
             int userColumn = int.Parse(this.currentCommand[2].ToString());
-            if (GameLogic.CheckIfEmptyElseChangeCurrentPlayBoard(playBoard, userRow, userColumn))
+
+            GameLogic gameLogic = new GameLogic();
+
+            if (gameLogic.CheckIfEmpty(playBoard, userRow, userColumn))
             {
                 Console.WriteLine("cannot pop missing ballon!");
                 return;
             }
+            else
+            {
+                gameLogic.PopBaloons(playBoard, userRow, userColumn);
+            }
 
             userMoves++;
-            if (Winner.CheckIfIsWinner(playBoard))
+
+            WinnerValidator winner = new WinnerValidator();
+
+            if (winner.CheckIfIsWinner(playBoard))
             {
                 Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
-                if (Winner.SignIfSkilled(this.topFive, userMoves))
+                if (winner.SignIfSkilled(this.topFive, userMoves))
                 {
                     this.scoreBoard.PrintTopFive(this.topFive);
                 }

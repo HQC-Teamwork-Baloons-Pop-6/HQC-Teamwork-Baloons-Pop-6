@@ -1,25 +1,25 @@
-﻿namespace BalloonsPopGame.Srs
+﻿namespace BalloonsPopGame.Srs.Validators
 {
     using System;
     using System.Collections.Generic;
 
-    public abstract class Winner
+    public class WinnerValidator
     {
-        public static bool CheckIfIsWinner(char[,] matrix)
+        public bool CheckIfIsWinner(char[,] playBoard)
         {
             bool isWinner = true;
             Stack<char> stek = new Stack<char>();
 
-            int rowLenght = matrix.GetLength(1);
-            int columnLenght = matrix.GetLength(0);
+            int rowLenght = playBoard.GetLength(1);
+            int columnLenght = playBoard.GetLength(0);
             for (int j = 0; j < rowLenght; j++)
             {
                 for (int i = 0; i < columnLenght; i++)
                 {
-                    if (matrix[i, j] != '0')
+                    if (playBoard[i, j] != '0')
                     {
                         isWinner = false;
-                        stek.Push(matrix[i, j]);
+                        stek.Push(playBoard[i, j]);
                     }
                 }
 
@@ -27,11 +27,11 @@
                 {
                     try
                     {
-                        matrix[k, j] = stek.Pop();
+                        playBoard[k, j] = stek.Pop();
                     }
                     catch (Exception)
                     {
-                        matrix[k, j] = '0';
+                        playBoard[k, j] = '0';
                     }
                 }
             }
@@ -39,7 +39,7 @@
             return isWinner;
         }
                
-        public static bool SignIfSkilled(string[,] chart, int points)
+        public bool SignIfSkilled(string[,] chart, int points)
         {
             bool skilled = false;
             int worstMoves = 0;
