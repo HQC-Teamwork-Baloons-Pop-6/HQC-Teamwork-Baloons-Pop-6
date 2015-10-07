@@ -45,19 +45,23 @@
 
 
 5.  **DRY (Don't repeat yourself)**.Extracted the method `PrintLine()` from the method `PrintMatrix()`. 
-
 	- Removed comments.`// trinket stuff for printMatrix() till here`
 	- Removed duplicate code.
 ```
-Console.Write("   "); // some trinket stuff again
-   for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
-  {
- Console.Write("-");
-  }
- Console.WriteLine();
-```	
-6.  **Single responsibility**. Introduced class `Board` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
-7.  Renamed method bool `doit` to `CheckIfIsWinner`.
+    Console.Write("   "); // some trinket stuff again
+       for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
+      {
+     Console.Write("-");
+      }
+     Console.WriteLine();
+```
+	
+
+
+1. **Single responsibility**. Introduced class `Board` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
+
+
+1.  Renamed method bool `doit` to `CheckIfIsWinner`.
 8.  Renamed class `Game` to `PrintingManager`.
 9.  Introduced class `ScoreBoard` and moved all related functionality in it.
 10.  Renamed Class `NamePairValue` to `Player`.
