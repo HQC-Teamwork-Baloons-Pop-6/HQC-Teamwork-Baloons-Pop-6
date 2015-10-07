@@ -4,101 +4,37 @@
 
     public abstract class GameLogic
     {
-        // TODO separate two methods ifisEmpty and ModifyCurrentPlayboard
-        public static bool CheckIfEmptyElseChangeCurrentPlayBoard(char[,] currentPlayBoard, int rowAtm, int columnAtm)
+        private static int[,] Direction = new int[,] { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
+
+        // TODO separate two methods IfIsEmpty and ModifyCurrentPlayboard
+        public static bool CheckIfEmptyElseChangeCurrentPlayBoard(char[,] currentPlayBoard, int row, int column)
         {
-            if (currentPlayBoard[rowAtm, columnAtm] == '0')
+            if (currentPlayBoard[row, column] == '0')
             {
                 return true;
             }
 
-            char searchedTarget = currentPlayBoard[rowAtm, columnAtm];
-            currentPlayBoard[rowAtm, columnAtm] = '0';
+            char searchedBaloon = currentPlayBoard[row, column];
+            currentPlayBoard[row, column] = '0';
 
-            CheckLeft(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
-            CheckRight(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
-            CheckUp(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
-            CheckDown(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
+            for (int i = 0; i < Direction.GetLength(0); i++)
+            {
+                ChechDirections(currentPlayBoard, row, column, searchedBaloon, Direction[i, 0], Direction[i, 1]);
+            }
 
             return false;
         }
 
-        private static void CheckLeft(char[,] matrix, int row, int column, char searchedItem)
+        private static void ChechDirections(char[,] currentPlayBoard, int row, int column, char searchedTarget, int directionX, int directionY)
         {
-            int newRow = row;
-            int newColumn = column - 1;
+            row += directionX;
+            column += directionY;
             try
             {
-                if (matrix[newRow, newColumn] == searchedItem)
+                if (currentPlayBoard[row, column] == searchedTarget)
                 {
-                    matrix[newRow, newColumn] = '0';
-                    CheckLeft(matrix, newRow, newColumn, searchedItem);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return;
-            }
-        }
-
-        private static void CheckRight(char[,] matrix, int row, int column, char searchedItem)
-        {
-            int newRow = row;
-            int newColumn = column + 1;
-            try
-            {
-                if (matrix[newRow, newColumn] == searchedItem)
-                {
-                    matrix[newRow, newColumn] = '0';
-                    CheckRight(matrix, newRow, newColumn, searchedItem);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return;
-            }
-        }
-
-        private static void CheckUp(char[,] matrix, int row, int column, char searchedItem)
-        {
-            int newRow = row + 1;
-            int newColumn = column;
-            try
-            {
-                if (matrix[newRow, newColumn] == searchedItem)
-                {
-                    matrix[newRow, newColumn] = '0';
-                    CheckUp(matrix, newRow, newColumn, searchedItem);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return;
-            }
-        }
-
-        private static void CheckDown(char[,] matrix, int row, int column, char searchedItem)
-        {
-            int newRow = row - 1;
-            int newColumn = column;
-            try
-            {
-                if (matrix[newRow, newColumn] == searchedItem)
-                {
-                    matrix[newRow, newColumn] = '0';
-                    CheckDown(matrix, newRow, newColumn, searchedItem);
+                    currentPlayBoard[row, column] = '0';
+                    ChechDirections(currentPlayBoard, row, column, searchedTarget, directionX, directionY);
                 }
                 else
                 {

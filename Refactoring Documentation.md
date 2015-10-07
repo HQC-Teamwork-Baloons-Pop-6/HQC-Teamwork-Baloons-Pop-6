@@ -55,13 +55,8 @@
       }
      Console.WriteLine();
 ```
-	
-
-
-1. **Single responsibility**. Introduced class `Board` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
-
-
-1.  Renamed method bool `doit` to `CheckIfIsWinner`.
+6.  **Single responsibility**. Introduced class `Board` and moved all related functionality in it.(moved method `GenerateMatrix` from `PrinterManager`).
+7.  Renamed method bool `doit` to `CheckIfIsWinner`.
 8.  Renamed class `Game` to `PrintingManager`.
 9.  Introduced class `ScoreBoard` and moved all related functionality in it.
 10.  Renamed Class `NamePairValue` to `Player`.
@@ -98,4 +93,99 @@
 
 20.  Move `IsValidInputCommand` to a new class `InputCommandValidator.cs`.
 21.  Add default cunstructor ScoreBoard in class `ScoreBoard` with default ConsoleLogger.
-22.  
+22.  Remove duplicate code and introduce new Method `CheckDirections`.
+
+			CheckRight(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
+            CheckLeft(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
+            CheckDown(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
+            CheckUp(currentPlayBoard, rowAtm, columnAtm, searchedTarget);
+
+        private static void CheckLeft(char[,] matrix, int row, int column, char searchedItem)
+        {
+            int newRow = row;
+            int newColumn = column - 1;
+            try
+            {
+                if (matrix[newRow, newColumn] == searchedItem)
+                {
+                    matrix[newRow, newColumn] = '0';
+                    CheckLeft(matrix, newRow, newColumn, searchedItem);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return;
+            }
+        }
+
+        private static void CheckRight(char[,] matrix, int row, int column, char searchedItem)
+        {
+            int newRow = row;
+            int newColumn = column + 1;
+            try
+            {
+                if (matrix[newRow, newColumn] == searchedItem)
+                {
+                    matrix[newRow, newColumn] = '0';
+                    CheckRight(matrix, newRow, newColumn, searchedItem);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return;
+            }
+        }
+
+        private static void CheckUp(char[,] matrix, int row, int column, char searchedItem)
+        {
+            int newRow = row + 1;
+            int newColumn = column;
+            try
+            {
+                if (matrix[newRow, newColumn] == searchedItem)
+                {
+                    matrix[newRow, newColumn] = '0';
+                    CheckUp(matrix, newRow, newColumn, searchedItem);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return;
+            }
+        }
+
+        private static void CheckDown(char[,] matrix, int row, int column, char searchedItem)
+        {
+            int newRow = row - 1;
+            int newColumn = column;
+            try
+            {
+                if (matrix[newRow, newColumn] == searchedItem)
+                {
+                    matrix[newRow, newColumn] = '0';
+                    CheckDown(matrix, newRow, newColumn, searchedItem);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return;
+            }
+        }
+
+1. Rename newColumn to column and newRow to row in method `ChechDirections`.
