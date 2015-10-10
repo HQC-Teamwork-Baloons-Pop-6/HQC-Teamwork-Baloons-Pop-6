@@ -6,7 +6,10 @@
     {
         private static readonly int[,] Direction = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
                
-        public bool CheckIfEmpty(char[,] currentPlayBoard, int row, int column) => currentPlayBoard[row, column] == '0';
+        public bool CheckIfEmpty(char[,] currentPlayBoard, int row, int column)
+        {
+            return currentPlayBoard[row, column] == '0';
+        }
 
         public void PopBaloons(char[,] currentPlayBoard, int row, int column)
         {

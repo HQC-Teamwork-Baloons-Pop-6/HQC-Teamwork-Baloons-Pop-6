@@ -6,7 +6,10 @@
     {
         private readonly Dictionary<byte, Baloon> _characters = new Dictionary<byte, Baloon>();
 
-        public int NumberOfObjects => _characters.Count;
+        public int NumberOfObjects
+        {
+            get { return _characters.Count; }
+        }
 
         public Baloon GetCharacter(byte key)
         {

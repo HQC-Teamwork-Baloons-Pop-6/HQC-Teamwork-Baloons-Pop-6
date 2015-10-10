@@ -11,7 +11,10 @@
         {
         }
 
-        public static PrintingManager Instance => _printingManagerInstance ?? (_printingManagerInstance = new PrintingManager());
+        public static PrintingManager Instance
+        {
+            get { return _printingManagerInstance ?? (_printingManagerInstance = new PrintingManager()); }
+        }
 
         public void PrintPlayBoard(char[,] playBoard)
         {
