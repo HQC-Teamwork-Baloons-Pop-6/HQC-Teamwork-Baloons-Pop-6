@@ -6,8 +6,7 @@ Baloons-Pop-6 / Team Number 1847
 
 
 1. Dimitar Chakov ([https://github.com/dchakov](https://github.com/dchakov))
-2. .
-3. .
+2. Dzheylyan Ademova ([https://github.com/djenitoo](https://github.com/djenitoo))
 
 
 ### Refactoring Documentation ###
