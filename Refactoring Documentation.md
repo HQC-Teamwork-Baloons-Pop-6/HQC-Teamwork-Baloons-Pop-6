@@ -188,4 +188,35 @@
             }
         }
 
-1. Rename newColumn to column and newRow to row in method `ChechDirections`.
+23. Rename newColumn to column and newRow to row in method `ChechDirections`.
+24. Made setters in `Baloon.cs` protected.
+25. Removed not needed this. references and unused usings;
+	Before:
+```
+     using System;
+     using System.Collections.Generic;
+     using BalloonsPopGame.Srs.Formatters;
+     using BalloonsPopGame.Srs.ScoreBoardLogger;
+```
+	After:
+```
+     using System;
+     using System.Collections.Generic;   
+     using Formatters;
+```
+26. Converted private fields to readonly, where possible and renamed them to begin with *_*(underscope).
+27. Renamed class name according to rules:
+```
+ namespace BalloonsPopGame.Srs.Boards
+ {
+-    public class Board10x10 : Board
++    public class Board10X10 : Board
+     {
+-        public Board10x10()
++        public Board10X10()
+             : base(10, 10)
+         {
+         }
+```
+28. Simplified some `if-else` nesting to reduce cyclomatic complexity.
+
