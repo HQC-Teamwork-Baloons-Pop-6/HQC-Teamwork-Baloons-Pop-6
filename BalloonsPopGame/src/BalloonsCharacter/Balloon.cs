@@ -1,18 +1,20 @@
 ﻿namespace BalloonsPopGame.Srs.BaloonsCharacter
 {
     /// <summary>
-    /// Abstract class for baloons structure
+    /// Abstract class for balloons structure.
     /// </summary>
-    public abstract class Baloon
+    public abstract class Balloon
     {
         /// <summary>
-        /// Symbol property
+        /// Gets or sets Symbol property.
         /// </summary>
+        /// <value>Gets or sets the value of Symbol.</value>
         public char Symbol { get; protected set; }
 
         /// <summary>
-        /// Color property
+        /// Gets or sets Color property.
         /// </summary>
+        /// <value>Gets or sets the Color value.</value>
         public string Color { get; protected set; }
     }
 }

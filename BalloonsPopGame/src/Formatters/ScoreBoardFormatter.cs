@@ -1,5 +1,8 @@
 ﻿namespace BalloonsPopGame.Srs.Formatters
 {
+    /// <summary>
+    /// Format a scoreboard.
+    /// </summary>
     internal class ScoreBoardFormatter : IFormatter
     {
         public string Format(int number, string name, int value)

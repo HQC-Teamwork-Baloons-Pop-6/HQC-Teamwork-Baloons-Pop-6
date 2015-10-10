@@ -1,14 +1,14 @@
 ﻿namespace BalloonsPopGame.Srs.BaloonsCharacter
 {
     /// <summary>
-    /// Class generates concrete balloon
+    /// Class generates concrete balloon.
     /// </summary>
-    public class BaloonA : Baloon
+    public class BalloonA : Balloon
     {
         /// <summary>
-        /// The class constructor.
+        /// Initializes a new instance of the <see cref="BalloonA"></see> class.
         /// </summary>
-        public BaloonA()
+        public BalloonA()
         {
             this.Symbol = 'A';
             this.Color = "Cyan";

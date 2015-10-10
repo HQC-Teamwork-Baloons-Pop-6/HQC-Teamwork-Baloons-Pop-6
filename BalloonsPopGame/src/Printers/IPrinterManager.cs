@@ -1,4 +1,4 @@
-﻿namespace BalloonsPopGame.Srs
+﻿namespace BalloonsPopGame.Srs.Printers
 {
     public interface IPrinterManager
     {

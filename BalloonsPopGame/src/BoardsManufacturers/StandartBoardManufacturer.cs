@@ -2,6 +2,9 @@
 {
     using Boards;
 
+    /// <summary>
+    /// Creates a standard board.
+    /// </summary>
     public class StandartBoardManufacturer : Manufacturer
     {
         public override char[,] GenerateBoard()

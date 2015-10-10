@@ -4,19 +4,24 @@
     using Boards;
     using Command;
     using Formatters;
+    using Printers;
     using ScoreBoardLogger;
     using Validators;
 
-    //TODO: Remove magic values!!
+    ////TODO: Remove magic values!!
+    
+    /// <summary>
+    /// Creates a game command engine.
+    /// </summary>
     public class GameCommandsEngine
     {
-        private readonly string _currentCommand;
-        private readonly string[,] _topFive;
+        private readonly string currentCommand;
+        private readonly string[,] topFive;
 
         public GameCommandsEngine(string currentCommand, string[,] topFive)
         {
-            this._currentCommand = currentCommand;
-            this._topFive = topFive;
+            this.currentCommand = currentCommand;
+            this.topFive = topFive;
         }
 
         public void ProcessGame(ref char[,] playBoard, ref int userMoves)
@@ -33,7 +38,7 @@
 
             var printer = PrintingManager.Instance;
 
-            switch (_currentCommand)
+            switch (this.currentCommand)
             {
                 case "RESTART":
                     IInputCommand restart = new RestartCommand(boardGenerator, printer);
@@ -41,7 +46,7 @@
                     break;
 
                 case "TOP":
-                    IInputCommand topscoreBoard = new TopCommand(scoreBoard, _topFive);
+                    IInputCommand topscoreBoard = new TopCommand(scoreBoard, this.topFive);
                     topscoreBoard.Execute(ref playBoard, ref userMoves);
                     break;
 
@@ -50,12 +55,13 @@
 
                 default:
                     InputCommandValidator validator = new InputCommandValidator();
-                    if (validator.IsValidInputCommand(_currentCommand))
+                    if (validator.IsValidInputCommand(this.currentCommand))
                     {
-                        IInputCommand play = new PlayCommand(_currentCommand, _topFive, scoreBoard, boardGenerator, printer);
+                        IInputCommand play = new PlayCommand(this.currentCommand, this.topFive, scoreBoard, boardGenerator, printer);
                         play.Execute(ref playBoard, ref userMoves);
                         break;
                     }
+
                     Console.WriteLine("Wrong input ! Try Again ! ");
                     break;
             }

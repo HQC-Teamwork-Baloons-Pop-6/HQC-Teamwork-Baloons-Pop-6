@@ -1,8 +1,8 @@
 ﻿namespace tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using BalloonsPopGame.Srs;
     using BalloonsPopGame.Srs.Validators;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class GameEngineTest

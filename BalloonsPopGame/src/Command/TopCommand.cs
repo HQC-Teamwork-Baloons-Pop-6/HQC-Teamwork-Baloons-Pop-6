@@ -2,20 +2,23 @@
 {
     using ScoreBoardLogger;
 
+    /// <summary>
+    /// Process a top command.
+    /// </summary>
     public class TopCommand : IInputCommand
     {
-        private readonly ScoreBoard _scoreBoard;
-        private readonly string[,] _topFive;
+        private readonly ScoreBoard scoreBoard;
+        private readonly string[,] topFive;
 
         public TopCommand(ScoreBoard scoreBoard, string[,] topFive)
         {
-            this._scoreBoard = scoreBoard;
-            this._topFive = topFive;
+            this.scoreBoard = scoreBoard;
+            this.topFive = topFive;
         }
 
         public void Execute(ref char[,] playBoard, ref int userMoves)
         {
-            this._scoreBoard.PrintTopFive(this._topFive);
+            this.scoreBoard.PrintTopFive(this.topFive);
         }
     }
 }

@@ -1,37 +1,37 @@
 ﻿namespace tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using BalloonsPopGame.Srs.BaloonsCharacter;
-
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    
     [TestClass]
     public class BaloonsTest
     {
         [TestMethod]
         public void TestBaloonA()
         {
-            Baloon baloon = new BaloonA();
-            Assert.AreEqual(baloon.Symbol, 'A');
+            Balloon balloon = new BalloonA();
+            Assert.AreEqual(balloon.Symbol, 'A');
         }
 
         [TestMethod]
         public void TestBaloonB()
         {
-            Baloon baloon = new BaloonB();
-            Assert.AreEqual(baloon.Symbol, 'B');
+            Balloon balloon = new BalloonB();
+            Assert.AreEqual(balloon.Symbol, 'B');
         }
 
         [TestMethod]
         public void TestBaloonC()
         {
-            Baloon baloon = new BaloonC();
-            Assert.AreEqual(baloon.Symbol, 'C');
+            Balloon balloon = new BalloonC();
+            Assert.AreEqual(balloon.Symbol, 'C');
         }
 
         [TestMethod]
         public void TestBaloonD()
         {
-            Baloon baloon = new BaloonD();
-            Assert.AreEqual(baloon.Symbol, 'D');
+            Balloon balloon = new BalloonD();
+            Assert.AreEqual(balloon.Symbol, 'D');
         }
     }
 }

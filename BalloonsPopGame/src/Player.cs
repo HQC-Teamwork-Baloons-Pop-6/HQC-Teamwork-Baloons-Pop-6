@@ -3,57 +3,57 @@ namespace BalloonsPopGame.Srs
     using System;
 
     /// <summary>
-    /// Class containing player info
+    /// Class containing player info.
     /// </summary>
     public class Player : IComparable<Player>
     {
         /// <summary>
         /// Store for the value property.
         /// </summary>
-        private int _value;
+        private int value;
 
         /// <summary>
         /// Store for the name property.
         /// </summary>
-        private string _name;
+        private string name;
 
         /// <summary>
-        /// Constructor for palyer
+        /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="name"></param>
+        /// <param name="value">Player's value</param>
+        /// <param name="name">Player's name</param>
         public Player(int value, string name)
         {
-            Value = value;
-            Name = name;
+            this.Value = value;
+            this.Name = name;
         }
 
         /// <summary>
-        /// Value property
+        /// Value property.
         /// </summary>
         public int Value
         {
-            get { return _value; }
-            set { this._value = value; }
+            get { return this.value; }
+            set { this.value = value; }
         }
 
         /// <summary>
-        /// Name property
+        /// Name property.
         /// </summary>
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return this.name; }
+            set { this.name = value; }
         }
 
         /// <summary>
-        /// Method for compare two players
+        /// Method for compare two players.
         /// </summary>
-        /// <param name="other"></param>
-        /// <returns></returns>
+        /// <param name="other">Value of second player.</param>
+        /// <returns>Value of comparing</returns>
         public int CompareTo(Player other)
         {
-            return Value.CompareTo(other.Value);
+            return this.Value.CompareTo(other.Value);
         }
     }
 }

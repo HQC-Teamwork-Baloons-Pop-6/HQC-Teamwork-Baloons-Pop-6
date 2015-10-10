@@ -2,37 +2,41 @@
 {
     using System;
     using Boards;
+    using Printers;
     using ScoreBoardLogger;
     using Validators;
 
+    /// <summary>
+    /// Process commands of the player.
+    /// </summary>
     public class PlayCommand : IInputCommand
     {
-        private readonly string _currentCommand;
-        private readonly string[,] _topFive;
-        private readonly ScoreBoard _scoreBoard;
-        private readonly Board _board;
-        private readonly IPrinterManager _printer;
+        private readonly string currentCommand;
+        private readonly string[,] topFive;
+        private readonly ScoreBoard scoreBoard;
+        private readonly Board board;
+        private readonly IPrinterManager printer;
 
         public PlayCommand(string currentCommand, string[,] topFive, ScoreBoard scoreBoard, Board board, IPrinterManager printer)
         {
-            _currentCommand = currentCommand;
-            _topFive = topFive;
-            _scoreBoard = scoreBoard;
-            _board = board;
-            _printer = printer;
+            this.currentCommand = currentCommand;
+            this.topFive = topFive;
+            this.scoreBoard = scoreBoard;
+            this.board = board;
+            this.printer = printer;
         }
 
-        //TODO: Remove magic values and make them better formated
+        ////TODO: Remove magic values and make them better formated
         public void Execute(ref char[,] playBoard, ref int userMoves)
         {
-            var userRow = int.Parse(this._currentCommand[0].ToString());
+            var userRow = int.Parse(this.currentCommand[0].ToString());
             if (userRow > playBoard.GetLength(0) - 1)
             {
                 Console.WriteLine("Wrong input ! Try Again ! ");
                 return;
             }
 
-            var userColumn = int.Parse(this._currentCommand[2].ToString());
+            var userColumn = int.Parse(this.currentCommand[2].ToString());
 
             var gameLogic = new GameLogic();
 
@@ -51,20 +55,20 @@
             if (winner.CheckIfIsWinner(playBoard))
             {
                 Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
-                if (winner.SignIfSkilled(_topFive, userMoves))
+                if (winner.SignIfSkilled(this.topFive, userMoves))
                 {
-                    _scoreBoard.PrintTopFive(_topFive);
+                    this.scoreBoard.PrintTopFive(this.topFive);
                 }
                 else
                 {
                     Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                 }
 
-                playBoard = _board.GenerateBoard();
+                playBoard = this.board.GenerateBoard();
                 userMoves = 0;
             }
 
-            _printer.PrintPlayBoard(playBoard);
+            this.printer.PrintPlayBoard(playBoard);
         }
     }
 }

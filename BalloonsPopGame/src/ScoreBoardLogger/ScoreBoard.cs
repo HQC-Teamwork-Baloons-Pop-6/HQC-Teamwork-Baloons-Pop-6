@@ -10,12 +10,12 @@
 
         internal ScoreBoard()
         {
-            Logger = new ConsoleLogger(new ScoreBoardFormatter());
+            this.Logger = new ConsoleLogger(new ScoreBoardFormatter());
         }
 
         internal ScoreBoard(ILogger logger)
         {
-            Logger = logger;
+            this.Logger = logger;
         }
 
         public void PrintTopFive(string[,] playersTable)
@@ -33,7 +33,7 @@
             }
 
             finalScore.Sort();
-            Logger.Log(finalScore);
+            this.Logger.Log(finalScore);
         }
     }
 }

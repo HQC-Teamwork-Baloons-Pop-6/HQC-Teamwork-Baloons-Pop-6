@@ -6,15 +6,18 @@
     using System.Text;
     using Formatters;
 
+    /// <summary>
+    /// Creates file loggers.
+    /// </summary>
     public class FileLogger : ILogger
     {
         internal readonly IFormatter Formatter;
-        private readonly string _filePath;
+        private readonly string filePath;
 
         internal FileLogger(string filePath, IFormatter formatter)
         {
-            this._filePath = filePath;
-            Formatter = formatter;
+            this.filePath = filePath;
+            this.Formatter = formatter;
         }
 
         public void Log(List<Player> finalScore)
@@ -27,12 +30,12 @@
             for (int i = 0; i < finalScore.Count; ++i)
             {
                 var player = finalScore[i];
-                result.AppendLine(Formatter.Format(i + 1, player.Name, player.Value));
+                result.AppendLine(this.Formatter.Format(i + 1, player.Name, player.Value));
             }
 
             result.AppendLine("----------------------------------");
 
-            File.AppendAllText(_filePath, result.ToString());
+            File.AppendAllText(this.filePath, result.ToString());
         }
     }
 }

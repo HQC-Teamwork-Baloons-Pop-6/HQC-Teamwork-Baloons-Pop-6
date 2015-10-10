@@ -1,11 +1,11 @@
-﻿namespace BalloonsPopGame.Srs
+﻿namespace BalloonsPopGame.Srs.Printers
 {
     using System;
     using System.Text;
 
     public sealed class PrintingManager : IPrinterManager
     {
-        private static PrintingManager _printingManagerInstance;
+        private static PrintingManager printingManagerInstance;
 
         private PrintingManager()
         {
@@ -13,7 +13,7 @@
 
         public static PrintingManager Instance
         {
-            get { return _printingManagerInstance ?? (_printingManagerInstance = new PrintingManager()); }
+            get { return printingManagerInstance ?? (printingManagerInstance = new PrintingManager()); }
         }
 
         public void PrintPlayBoard(char[,] playBoard)
@@ -40,7 +40,7 @@
                         continue;
                     }
 
-                    Console.ForegroundColor = (ConsoleColor) (playBoard[i, j]%16);
+                    Console.ForegroundColor = (ConsoleColor)(playBoard[i, j] % 16);
                     Console.Write(playBoard[i, j] + " ");
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
@@ -59,8 +59,8 @@
             var line = new StringBuilder();
             line.Append("   ");
 
-            var countOfSymbols = (int)(matrix.GetLongLength(1)*2) + 1;
-            line.Append(new String('-', countOfSymbols));
+            var countOfSymbols = (int)(matrix.GetLongLength(1) * 2) + 1;
+            line.Append(new string('-', countOfSymbols));
 
             Console.WriteLine(line.ToString());
         }

@@ -2,7 +2,8 @@
 {
     using System;
     using Boards;
-
+    using Printers;
+    
     public class GameEngine
     {
         private const byte ScoreBoardRows = 5;

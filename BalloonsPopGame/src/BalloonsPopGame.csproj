@@ -63,12 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaloonsCharacter\Baloon.cs" />
-    <Compile Include="BaloonsCharacter\BaloonA.cs" />
-    <Compile Include="BaloonsCharacter\BaloonB.cs" />
-    <Compile Include="BaloonsCharacter\BaloonC.cs" />
-    <Compile Include="BaloonsCharacter\BaloonD.cs" />
-    <Compile Include="BaloonsCharacter\BaloonFactory.cs" />
+    <Compile Include="BalloonsCharacter\Balloon.cs" />
+    <Compile Include="BalloonsCharacter\BalloonA.cs" />
+    <Compile Include="BalloonsCharacter\BalloonB.cs" />
+    <Compile Include="BalloonsCharacter\BalloonC.cs" />
+    <Compile Include="BalloonsCharacter\BalloonD.cs" />
+    <Compile Include="BalloonsCharacter\BalloonFactory.cs" />
     <Compile Include="Boards\Board5X10.cs" />
     <Compile Include="Command\IInputCommand.cs" />
     <Compile Include="Command\PlayCommand.cs" />
@@ -78,7 +78,8 @@
     <Compile Include="Formatters\IFormatter.cs" />
     <Compile Include="GameCommandsEngine.cs" />
     <Compile Include="GameStart.cs" />
-    <Compile Include="IPrinterManager.cs" />
+    <Compile Include="Printers\IPrinterManager.cs" />
+    <Compile Include="Printers\PrintingManager.cs" />
     <Compile Include="ScoreBoardLogger\ConsoleLogger.cs" />
     <Compile Include="ScoreBoardLogger\FileLogger.cs" />
     <Compile Include="ScoreBoardLogger\ILogger.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="GameLogic.cs" />
     <Compile Include="BoardsManufacturers\Manufacturer.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PrintingManager.cs" />
     <Compile Include="Boards\Board8X10.cs" />
     <Compile Include="ScoreBoardLogger\ScoreBoard.cs" />
     <Compile Include="Validators\InputCommandValidator.cs" />

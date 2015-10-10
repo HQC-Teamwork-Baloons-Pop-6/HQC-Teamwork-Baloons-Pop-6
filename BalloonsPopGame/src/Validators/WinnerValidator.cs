@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Validate winners.
+    /// </summary>
     public class WinnerValidator
     {
         public bool CheckIfIsWinner(char[,] playBoard)
@@ -42,7 +45,7 @@
             for (int i = 0; i < 5; i++)
             {
                 if (chart[i, 0] != null) continue;
-                ProcessUserSigning(chart, points, i);
+                this.ProcessUserSigning(chart, points, i);
                 return true;
             }
 
@@ -57,7 +60,7 @@
             }
 
             if (points >= worstMoves) return false;
-            ProcessUserSigning(chart, points, worstMovesChartPosition);
+            this.ProcessUserSigning(chart, points, worstMovesChartPosition);
             return true;
         }
 
