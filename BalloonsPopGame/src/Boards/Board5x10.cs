@@ -1,8 +1,8 @@
 ﻿namespace BalloonsPopGame.Srs.Boards
 {
-    public class Board5x10 : Board
+    public class Board5X10 : Board
     {
-        public Board5x10()
+        public Board5X10()
             : base(5, 10)
         {
         }

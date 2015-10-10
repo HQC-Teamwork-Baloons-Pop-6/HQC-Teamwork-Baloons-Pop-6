@@ -8,11 +8,11 @@
         /// <summary>
         /// Symbol property
         /// </summary>
-        public char Symbol { get; set; }
+        public char Symbol { get; protected set; }
 
         /// <summary>
         /// Color property
         /// </summary>
-        public string Color { get; set; }
+        public string Color { get; protected set; }
     }
 }

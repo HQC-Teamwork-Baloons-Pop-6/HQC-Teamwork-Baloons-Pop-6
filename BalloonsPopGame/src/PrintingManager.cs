@@ -5,24 +5,13 @@
 
     public sealed class PrintingManager : IPrinterManager
     {
-        private static PrintingManager printingManagerInstance;
+        private static PrintingManager _printingManagerInstance;
 
         private PrintingManager()
         {
         }
 
-        public static PrintingManager Instance
-        {
-            get
-            {
-                if (printingManagerInstance == null)
-                {
-                    printingManagerInstance = new PrintingManager();
-                }
-
-                return printingManagerInstance;
-            }
-        }
+        public static PrintingManager Instance => _printingManagerInstance ?? (_printingManagerInstance = new PrintingManager());
 
         public void PrintPlayBoard(char[,] playBoard)
         {
@@ -35,7 +24,7 @@
 
             Console.WriteLine();
 
-            this.PrintLine(playBoard);
+            PrintLine(playBoard);
 
             for (byte i = 0; i < playBoard.GetLongLength(0); i++)
             {
@@ -48,27 +37,27 @@
                         continue;
                     }
 
-                    // TODO get color from baloon.color
-                    Console.ForegroundColor = (ConsoleColor)(playBoard[i, j] % 16);
+                    Console.ForegroundColor = (ConsoleColor) (playBoard[i, j]%16);
                     Console.Write(playBoard[i, j] + " ");
                     Console.ForegroundColor = ConsoleColor.Yellow;
+
+                    // TODO get color from baloon.color
                 }
 
                 Console.Write("| ");
                 Console.WriteLine();
             }
 
-            this.PrintLine(playBoard);
+            PrintLine(playBoard);
         }
 
-        private void PrintLine(char[,] matrix)
+        private static void PrintLine(char[,] matrix)
         {
-            StringBuilder line = new StringBuilder();
+            var line = new StringBuilder();
             line.Append("   ");
-            for (byte column = 0; column < (matrix.GetLongLength(1) * 2) + 1; column++)
-            {
-                line.Append("-");
-            }
+
+            var countOfSymbols = (int)(matrix.GetLongLength(1)*2) + 1;
+            line.Append(new String('-', countOfSymbols));
 
             Console.WriteLine(line.ToString());
         }

@@ -10,12 +10,12 @@ namespace BalloonsPopGame.Srs
         /// <summary>
         /// Store for the value property.
         /// </summary>
-        private int value;
+        private int _value;
 
         /// <summary>
         /// Store for the name property.
         /// </summary>
-        private string name;
+        private string _name;
 
         /// <summary>
         /// Constructor for palyer
@@ -24,8 +24,8 @@ namespace BalloonsPopGame.Srs
         /// <param name="name"></param>
         public Player(int value, string name)
         {
-            this.Value = value;
-            this.Name = name;
+            Value = value;
+            Name = name;
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace BalloonsPopGame.Srs
         /// </summary>
         public int Value
         {
-            get { return this.value; }
-            set { this.value = value; }
+            get { return _value; }
+            set { this._value = value; }
         }
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace BalloonsPopGame.Srs
         /// </summary>
         public string Name
         {
-            get { return this.name; }
-            set { this.name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace BalloonsPopGame.Srs
         /// <returns></returns>
         public int CompareTo(Player other)
         {
-            return this.Value.CompareTo(other.Value);
+            return Value.CompareTo(other.Value);
         }
     }
 }

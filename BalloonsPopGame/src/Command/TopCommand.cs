@@ -1,22 +1,21 @@
 ﻿namespace BalloonsPopGame.Srs.Command
 {
-    using System;
-    using BalloonsPopGame.Srs.ScoreBoardLogger;
+    using ScoreBoardLogger;
 
     public class TopCommand : IInputCommand
     {
-        private ScoreBoard scoreBoard;
-        private string[,] topFive;
+        private readonly ScoreBoard _scoreBoard;
+        private readonly string[,] _topFive;
 
         public TopCommand(ScoreBoard scoreBoard, string[,] topFive)
         {
-            this.scoreBoard = scoreBoard;
-            this.topFive = topFive;
+            this._scoreBoard = scoreBoard;
+            this._topFive = topFive;
         }
 
         public void Execute(ref char[,] playBoard, ref int userMoves)
         {
-            this.scoreBoard.PrintTopFive(this.topFive);
+            this._scoreBoard.PrintTopFive(this._topFive);
         }
     }
 }

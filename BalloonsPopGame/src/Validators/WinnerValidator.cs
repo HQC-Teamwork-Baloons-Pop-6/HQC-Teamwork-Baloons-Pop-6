@@ -7,20 +7,18 @@
     {
         public bool CheckIfIsWinner(char[,] playBoard)
         {
-            bool isWinner = true;
-            Stack<char> stek = new Stack<char>();
+            var isWinner = true;
+            var stek = new Stack<char>();
 
-            int rowLenght = playBoard.GetLength(1);
-            int columnLenght = playBoard.GetLength(0);
+            var rowLenght = playBoard.GetLength(1);
+            var columnLenght = playBoard.GetLength(0);
             for (int j = 0; j < rowLenght; j++)
             {
                 for (int i = 0; i < columnLenght; i++)
                 {
-                    if (playBoard[i, j] != '0')
-                    {
-                        isWinner = false;
-                        stek.Push(playBoard[i, j]);
-                    }
+                    if (playBoard[i, j] == '0') continue;
+                    isWinner = false;
+                    stek.Push(playBoard[i, j]);
                 }
 
                 for (int k = columnLenght - 1; k >= 0; k--)
@@ -41,44 +39,34 @@
                
         public bool SignIfSkilled(string[,] chart, int points)
         {
-            bool skilled = false;
-            int worstMoves = 0;
-            int worstMovesChartPosition = 0;
             for (int i = 0; i < 5; i++)
             {
-                if (chart[i, 0] == null)
-                {
-                    Console.WriteLine("Type in your name.");
-                    string tempUserName = Console.ReadLine();
-                    chart[i, 0] = points.ToString();
-                    chart[i, 1] = tempUserName;
-                    skilled = true;
-                    break;
-                }
+                if (chart[i, 0] != null) continue;
+                ProcessUserSigning(chart, points, i);
+                return true;
             }
 
-            if (skilled == false)
+            int worstMoves = 0;
+            int worstMovesChartPosition = 0;
+
+            for (int i = 0; i < 5; i++)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    if (int.Parse(chart[i, 0]) > worstMoves)
-                    {
-                        worstMovesChartPosition = i;
-                        worstMoves = int.Parse(chart[i, 0]);
-                    }
-                }
+                if (int.Parse(chart[i, 0]) <= worstMoves) continue;
+                worstMovesChartPosition = i;
+                worstMoves = int.Parse(chart[i, 0]);
             }
 
-            if (points < worstMoves && skilled == false)
-            {
-                Console.WriteLine("Type in your name.");
-                string tempUserName = Console.ReadLine();
-                chart[worstMovesChartPosition, 0] = points.ToString();
-                chart[worstMovesChartPosition, 1] = tempUserName;
-                skilled = true;
-            }
+            if (points >= worstMoves) return false;
+            ProcessUserSigning(chart, points, worstMovesChartPosition);
+            return true;
+        }
 
-            return skilled;
+        public void ProcessUserSigning(string[,] chart, int points, int position)
+        {
+            Console.WriteLine("Type in your name.");
+            var tempUserName = Console.ReadLine();
+            chart[position, 0] = points.ToString();
+            chart[position, 1] = tempUserName;
         }
     }
 }

@@ -1,10 +1,8 @@
 ﻿namespace BalloonsPopGame.Srs.ScoreBoardLogger
 {
-    using System;
     using System.Collections.Generic;
-    using BalloonsPopGame.Srs.Formatters;
-    using BalloonsPopGame.Srs.ScoreBoardLogger;
-   
+    using Formatters;
+
     public class ScoreBoard
     {
         internal readonly ILogger Logger;
@@ -12,17 +10,17 @@
 
         internal ScoreBoard()
         {
-            this.Logger = new ConsoleLogger(new ScoreBoardFormatter());
+            Logger = new ConsoleLogger(new ScoreBoardFormatter());
         }
 
         internal ScoreBoard(ILogger logger)
         {
-            this.Logger = logger;
+            Logger = logger;
         }
 
         public void PrintTopFive(string[,] playersTable)
         {
-            List<Player> finalScore = new List<Player>();
+            var finalScore = new List<Player>();
 
             for (int i = 0; i < TopFive; ++i)
             {
@@ -35,7 +33,7 @@
             }
 
             finalScore.Sort();
-            this.Logger.Log(finalScore);
+            Logger.Log(finalScore);
         }
     }
 }

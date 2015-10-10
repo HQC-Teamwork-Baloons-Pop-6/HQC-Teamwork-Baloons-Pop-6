@@ -1,34 +1,34 @@
 ﻿namespace BalloonsPopGame.Srs.Boards
 {
     using System;
-    using BalloonsPopGame.Srs.BaloonsCharacter;
+    using BaloonsCharacter;
 
     public class Board
     {
         private const byte MinRandomNumber = 1;
         private const byte MaxRandomNumber = 5;
-        private byte rows;
-        private byte columns;
-        private BaloonFactory baloonFactory;
+        private readonly byte _rows;
+        private readonly byte _columns;
+        private readonly BaloonFactory _baloonFactory;
 
         // Flyweight
         public Board(byte rows, byte columns)
         {
-            this.rows = rows;
-            this.columns = columns;
-            this.baloonFactory = new BaloonFactory();
+            this._rows = rows;
+            this._columns = columns;
+            this._baloonFactory = new BaloonFactory();
         }
 
         public char[,] GenerateBoard()
         {
-            char[,] board = new char[this.rows, this.columns];
-            Random randomNumber = new Random();
-            for (byte row = 0; row < this.rows; row++)
+            var board = new char[this._rows, this._columns];
+            var randomNumber = new Random();
+            for (byte row = 0; row < this._rows; row++)
             {
-                for (byte column = 0; column < this.columns; column++)
+                for (byte column = 0; column < this._columns; column++)
                 {
                     byte currentNumber = (byte)randomNumber.Next(MinRandomNumber, MaxRandomNumber);
-                    board[row, column] = this.baloonFactory.GetCharacter(currentNumber).Symbol;
+                    board[row, column] = this._baloonFactory.GetCharacter(currentNumber).Symbol;
                 }
             }
 

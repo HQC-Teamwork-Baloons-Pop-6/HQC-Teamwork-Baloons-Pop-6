@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using BalloonsPopGame.Srs.Formatters;
+    using Formatters;
 
     public class ConsoleLogger : ILogger
     {
@@ -10,7 +10,7 @@
 
         internal ConsoleLogger(IFormatter formatter)
         {
-            this.Formatter = formatter;
+            Formatter = formatter;
         }
 
         public void Log(List<Player> finalScore)
@@ -18,8 +18,8 @@
             Console.WriteLine("---------TOP FIVE CHART-----------");
             for (int i = 0; i < finalScore.Count; ++i)
             {
-                Player player = finalScore[i];
-                Console.WriteLine(this.Formatter.Format(i + 1, player.Name, player.Value));
+                var player = finalScore[i];
+                Console.WriteLine(Formatter.Format(i + 1, player.Name, player.Value));
             }
 
             Console.WriteLine("----------------------------------");

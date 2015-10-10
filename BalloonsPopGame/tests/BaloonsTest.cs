@@ -1,6 +1,5 @@
 ﻿namespace tests
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using BalloonsPopGame.Srs.BaloonsCharacter;
 

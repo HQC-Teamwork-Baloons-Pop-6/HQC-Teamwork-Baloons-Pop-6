@@ -1,21 +1,22 @@
 ﻿namespace BalloonsPopGame.Srs
 {
     using System;
-    using BalloonsPopGame.Srs.Boards;
-    using BalloonsPopGame.Srs.Command;
-    using BalloonsPopGame.Srs.Formatters;
-    using BalloonsPopGame.Srs.ScoreBoardLogger;
-    using BalloonsPopGame.Srs.Validators;
+    using Boards;
+    using Command;
+    using Formatters;
+    using ScoreBoardLogger;
+    using Validators;
 
+    //TODO: Remove magic values!!
     public class GameCommandsEngine
     {
-        private string currentCommand;
-        private string[,] topFive;
+        private readonly string _currentCommand;
+        private readonly string[,] _topFive;
 
         public GameCommandsEngine(string currentCommand, string[,] topFive)
         {
-            this.currentCommand = currentCommand;
-            this.topFive = topFive;
+            this._currentCommand = currentCommand;
+            this._topFive = topFive;
         }
 
         public void ProcessGame(ref char[,] playBoard, ref int userMoves)
@@ -32,7 +33,7 @@
 
             var printer = PrintingManager.Instance;
 
-            switch (this.currentCommand)
+            switch (_currentCommand)
             {
                 case "RESTART":
                     IInputCommand restart = new RestartCommand(boardGenerator, printer);
@@ -40,7 +41,7 @@
                     break;
 
                 case "TOP":
-                    IInputCommand topscoreBoard = new TopCommand(scoreBoard, this.topFive);
+                    IInputCommand topscoreBoard = new TopCommand(scoreBoard, _topFive);
                     topscoreBoard.Execute(ref playBoard, ref userMoves);
                     break;
 
@@ -49,17 +50,14 @@
 
                 default:
                     InputCommandValidator validator = new InputCommandValidator();
-                    if (validator.IsValidInputCommand(this.currentCommand))
+                    if (validator.IsValidInputCommand(_currentCommand))
                     {
-                        IInputCommand play = new PlayCommand(this.currentCommand, this.topFive, scoreBoard, boardGenerator, printer);
+                        IInputCommand play = new PlayCommand(_currentCommand, _topFive, scoreBoard, boardGenerator, printer);
                         play.Execute(ref playBoard, ref userMoves);
                         break;
                     }
-                    else
-                    {
-                        Console.WriteLine("Wrong input ! Try Again ! ");
-                        break;
-                    }
+                    Console.WriteLine("Wrong input ! Try Again ! ");
+                    break;
             }
         }
     }

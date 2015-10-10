@@ -1,7 +1,5 @@
 ﻿namespace BalloonsPopGame.Srs.BaloonsCharacter
 {
-    using System;
-
     /// <summary>
     /// Class generates concrete balloon
     /// </summary>

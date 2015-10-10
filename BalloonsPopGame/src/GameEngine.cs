@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPopGame.Srs
 {
     using System;
-    using BalloonsPopGame.Srs.Boards;
+    using Boards;
 
     public class GameEngine
     {
@@ -15,23 +15,24 @@
             // Factory Method
             // Manufacturer manufacturer = new TelerikSoft();
             // char[,] playBoard = manufacturer.GenerateBoard();
-            Board board = new Board(PlayBoardRows, PlayBoardCols);
-            char[,] playBoard = board.GenerateBoard();
+            var board = new Board(PlayBoardRows, PlayBoardCols);
+            var playBoard = board.GenerateBoard();
 
             // Singleton
             var printer = PrintingManager.Instance;
             printer.PrintPlayBoard(playBoard);
 
-            string[,] topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
+            var topFivePlayers = new string[ScoreBoardRows, ScoreBoardCols];
             string currentCommand = null;
-            int userMoves = 0;
+            var userMoves = 0;
             while (currentCommand != "EXIT")
             {
                 Console.WriteLine("Enter a row and column: ");
                 currentCommand = Console.ReadLine();
+                if (currentCommand == null) continue;
                 currentCommand = currentCommand.ToUpper().Trim();
 
-                GameCommandsEngine gameCommand = new GameCommandsEngine(currentCommand, topFivePlayers);
+                var gameCommand = new GameCommandsEngine(currentCommand, topFivePlayers);
                 gameCommand.ProcessGame(ref playBoard, ref userMoves);
             }
         }

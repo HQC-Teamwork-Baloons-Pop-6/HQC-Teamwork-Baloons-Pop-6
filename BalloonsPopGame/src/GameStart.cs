@@ -6,7 +6,7 @@
     {
         private static void Main()
         {
-            GameEngine engine = new GameEngine();
+            var engine = new GameEngine();
             engine.Start();
 
             Console.WriteLine("Good Bye! ");

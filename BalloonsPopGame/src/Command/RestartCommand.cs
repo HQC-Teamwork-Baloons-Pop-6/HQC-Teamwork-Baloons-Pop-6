@@ -1,22 +1,23 @@
 ﻿namespace BalloonsPopGame.Srs.Command
 {
-    using BalloonsPopGame.Srs.Boards;
+    using System;
+    using Boards;
 
     public class RestartCommand : IInputCommand
     {
-        private Board board;
-        private IPrinterManager printer;
+        private readonly Board _board;
+        private readonly IPrinterManager _printer;
 
         public RestartCommand(Board board, IPrinterManager printer)
         {
-            this.board = board;
-            this.printer = printer;
+            _board = board;
+            _printer = printer;
         }
 
         public void Execute(ref char[,] playBoard, ref int userMoves)
         {
-            playBoard = this.board.GenerateBoard();
-            this.printer.PrintPlayBoard(playBoard);
+            playBoard = _board.GenerateBoard();
+            _printer.PrintPlayBoard(playBoard);
             userMoves = 0;
         }
     }
