@@ -4,24 +4,176 @@
         <name>BalloonsPopGame</name>
     </assembly>
     <members>
+        <member name="T:BalloonsPopGame.Srs.BaloonsCharacter.Balloon">
+            <summary>
+            Abstract class for balloons structure.
+            </summary>
+        </member>
+        <member name="P:BalloonsPopGame.Srs.BaloonsCharacter.Balloon.Symbol">
+            <summary>
+            Gets or sets Symbol property.
+            </summary>
+            <value>Gets or sets the value of Symbol.</value>
+        </member>
+        <member name="P:BalloonsPopGame.Srs.BaloonsCharacter.Balloon.Color">
+            <summary>
+            Gets or sets Color property.
+            </summary>
+            <value>Gets or sets the Color value.</value>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonA">
+            <summary>
+            Class generates concrete balloon.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.BaloonsCharacter.BalloonA.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonA"></see> class.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonB">
+            <summary>
+            Class generates concrete balloon.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.BaloonsCharacter.BalloonB.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonB"></see> class.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonC">
+            <summary>
+            Class generates concrete balloon.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.BaloonsCharacter.BalloonC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonC"></see> class.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonD">
+            <summary>
+            Class generates concrete balloon.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.BaloonsCharacter.BalloonD.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonD"></see> class.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.BaloonsCharacter.BalloonFactory">
+            <summary>
+            Class generate a balloon factory.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Boards.Board5X10">
+            <summary>
+            Creates a board with sizes 5 to 10.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Boards.Board">
+            <summary>
+            Creates a board.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Command.PlayCommand">
+            <summary>
+            Process commands of the player.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Command.RestartCommand">
+            <summary>
+            Restarts a command.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Command.TopCommand">
+            <summary>
+            Process a top command.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Formatters.ScoreBoardFormatter">
+            <summary>
+            Format a scoreboard.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.GameCommandsEngine">
+            <summary>
+            Creates a game command engine.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.ScoreBoardLogger.ConsoleLogger">
+            <summary>
+            Creates console loggers.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.ScoreBoardLogger.FileLogger">
+            <summary>
+            Creates file loggers.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.BoardsManufacturers.StandartBoardManufacturer">
+            <summary>
+            Creates a standard board.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.BoardsManufacturers.Manufacturer">
+            <summary>
+            Inicialize a manufacturer
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Boards.Board10X10">
+            <summary>
+            Creates a board with sizes 10 to 10.
+            </summary>
+        </member>
         <member name="T:BalloonsPopGame.Srs.Player">
             <summary>
-            Class containing player info
+            Class containing player info.
+            </summary>
+        </member>
+        <member name="F:BalloonsPopGame.Srs.Player.value">
+            <summary>
+            Store for the value property.
+            </summary>
+        </member>
+        <member name="F:BalloonsPopGame.Srs.Player.name">
+            <summary>
+            Store for the name property.
             </summary>
         </member>
         <member name="M:BalloonsPopGame.Srs.Player.#ctor(System.Int32,System.String)">
             <summary>
-            Constructor for palyer
+            Initializes a new instance of the <see cref="T:BalloonsPopGame.Srs.Player"/> class.
             </summary>
-            <param name="value"></param>
-            <param name="name"></param>
+            <param name="value">Player's value</param>
+            <param name="name">Player's name</param>
         </member>
         <member name="M:BalloonsPopGame.Srs.Player.CompareTo(BalloonsPopGame.Srs.Player)">
             <summary>
-            Method for compare two players
+            Method for compare two players.
             </summary>
-            <param name="other"></param>
-            <returns></returns>
+            <param name="other">Value of second player.</param>
+            <returns>Value of comparing</returns>
+        </member>
+        <member name="P:BalloonsPopGame.Srs.Player.Value">
+            <summary>
+            Value property.
+            </summary>
+        </member>
+        <member name="P:BalloonsPopGame.Srs.Player.Name">
+            <summary>
+            Name property.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Boards.Board8X10">
+            <summary>
+            Creates board with sizes 8 to 10.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Validators.WinnerValidator">
+            <summary>
+            Validate winners.
+            </summary>
         </member>
     </members>
 </doc>
