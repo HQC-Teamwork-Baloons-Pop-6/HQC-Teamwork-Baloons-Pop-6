@@ -28,8 +28,8 @@
     <HelpTitle>Baloons Pop Game Documentation</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\BalloonsPopGame\src\bin\Debug\BalloonsPopGame.exe" xmlns="" />
-<DocumentationSource sourceFile="..\BalloonsPopGame\src\bin\Debug\BalloonsPopGame.XML" xmlns="" /></DocumentationSources>
+      <DocumentationSource sourceFile="..\BalloonsPopGame\src\bin\Debug\BalloonsPopGame.exe" />
+<DocumentationSource sourceFile="..\BalloonsPopGame\src\bin\Debug\BalloonsPopGame.xml" /></DocumentationSources>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
