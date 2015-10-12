@@ -2,6 +2,6 @@
 {
     public interface IScoreBoard
     {
-        void PrintTopFive(string[,] playersTable);
+        void PrintTopPlayers(string[,] playersTable);
     }
 }

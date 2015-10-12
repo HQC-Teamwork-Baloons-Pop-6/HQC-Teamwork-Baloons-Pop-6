@@ -3,14 +3,10 @@
     using System.Collections.Generic;
     using Formatters;
 
-<<<<<<< HEAD
-    public class ScoreBoard : IScoreBoard
-=======
     /// <summary>
     /// Initialize a score board.
     /// </summary>
-    public class ScoreBoard
->>>>>>> fa1c396c0398cf838f35293cc325683cbdaa4a0c
+    public class ScoreBoard : IScoreBoard
     {
         /// <summary>
         /// Instance of logger.
