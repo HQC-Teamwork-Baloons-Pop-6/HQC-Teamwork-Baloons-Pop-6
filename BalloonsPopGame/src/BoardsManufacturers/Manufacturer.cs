@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPopGame.Srs.BoardsManufacturers
 {
     /// <summary>
-    /// Inicialize a manufacturer
+    /// Initialize a manufacturer
     /// </summary>
     public abstract class Manufacturer
     {

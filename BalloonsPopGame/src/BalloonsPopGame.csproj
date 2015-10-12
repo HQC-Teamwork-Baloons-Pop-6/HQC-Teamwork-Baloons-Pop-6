@@ -93,6 +93,7 @@
     <Compile Include="BoardsManufacturers\Manufacturer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Boards\Board8X10.cs" />
+    <Compile Include="ScoreBoardLogger\IScoreBoard.cs" />
     <Compile Include="ScoreBoardLogger\ScoreBoard.cs" />
     <Compile Include="Validators\InputCommandValidator.cs" />
     <Compile Include="Validators\WinnerValidator.cs" />

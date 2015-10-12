@@ -11,7 +11,10 @@
 
         public int NumberOfObjects
         {
-            get { return this.characters.Count; }
+            get
+            {
+                return this.characters.Count;
+            }
         }
 
         public Balloon GetCharacter(byte key)

@@ -71,9 +71,19 @@
             Creates a board with sizes 5 to 10.
             </summary>
         </member>
+        <member name="T:BalloonsPopGame.Srs.Boards.Board10X10">
+            <summary>
+            Creates a board with sizes 10 to 10.
+            </summary>
+        </member>
         <member name="T:BalloonsPopGame.Srs.Boards.Board">
             <summary>
             Creates a board.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Boards.Board8X10">
+            <summary>
+            Creates board with sizes 8 to 10.
             </summary>
         </member>
         <member name="T:BalloonsPopGame.Srs.Command.PlayCommand">
@@ -101,10 +111,81 @@
             Creates a game command engine.
             </summary>
         </member>
+        <member name="T:BalloonsPopGame.Srs.GameStart">
+            <summary>
+            Initialize a game start.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.GameStart.Main">
+            <summary>
+            Main method of the class.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Printers.IPrinterManager">
+            <summary>
+            Interface for the printer manager.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Printers.IPrinterManager.PrintPlayBoard(System.Char[0:,0:])">
+            <summary>
+            Prints a play board.
+            </summary>
+            <param name="playBoard">Play board for printing.</param>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.Printers.PrintingManager">
+            <summary>
+            Initialize a printing manager.
+            </summary>
+        </member>
+        <member name="F:BalloonsPopGame.Srs.Printers.PrintingManager.printingManagerInstance">
+            <summary>
+            Instance of the printing manager.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Printers.PrintingManager.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:BalloonsPopGame.Srs.Printers.PrintingManager"/> class from being created.
+            </summary>
+        </member>
+        <member name="P:BalloonsPopGame.Srs.Printers.PrintingManager.Instance">
+            <summary>
+            Gets instance of printing manager.
+            </summary>
+            <value>Gets the value of the printing manager instance.</value>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Printers.PrintingManager.PrintPlayBoard(System.Char[0:,0:])">
+            <summary>
+            Prints the play board.
+            </summary>
+            <param name="playBoard">Current play board value.</param>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Printers.PrintingManager.PrintLine(System.Int32)">
+            <summary>
+            Prints a line of the play board.
+            </summary>
+            <param name="count">Length of the line.</param>
+        </member>
         <member name="T:BalloonsPopGame.Srs.ScoreBoardLogger.ConsoleLogger">
             <summary>
             Creates console loggers.
             </summary>
+        </member>
+        <member name="F:BalloonsPopGame.Srs.ScoreBoardLogger.ConsoleLogger.Formatter">
+            <summary>
+            Instance of formatter.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.ScoreBoardLogger.ConsoleLogger.#ctor(BalloonsPopGame.Srs.Formatters.IFormatter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonsPopGame.Srs.ScoreBoardLogger.ConsoleLogger"/> class.
+            </summary>
+            <param name="formatter">Given formatter for creating.</param>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.ScoreBoardLogger.ConsoleLogger.Log(System.Collections.Generic.List{BalloonsPopGame.Srs.Player})">
+            <summary>
+            Logs a given final score.
+            </summary>
+            <param name="finalScore">Value of final score for logging.</param>
         </member>
         <member name="T:BalloonsPopGame.Srs.ScoreBoardLogger.FileLogger">
             <summary>
@@ -118,13 +199,67 @@
         </member>
         <member name="T:BalloonsPopGame.Srs.BoardsManufacturers.Manufacturer">
             <summary>
-            Inicialize a manufacturer
+            Initialize a manufacturer
             </summary>
         </member>
-        <member name="T:BalloonsPopGame.Srs.Boards.Board10X10">
+        <member name="T:BalloonsPopGame.Srs.GameEngine">
             <summary>
-            Creates a board with sizes 10 to 10.
+            Initialize the engine of the game.
             </summary>
+        </member>
+        <member name="F:BalloonsPopGame.Srs.GameEngine.playBoardLenghts">
+            <summary>
+            Sizes of the play board.
+            </summary>
+        </member>
+        <member name="F:BalloonsPopGame.Srs.GameEngine.scoreBoardLenghts">
+            <summary>
+            Sizes of the score board.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.GameEngine.Start">
+            <summary>
+            Initialize the start of the game engine.
+            </summary>
+        </member>
+        <member name="T:BalloonsPopGame.Srs.GameLogic">
+            <summary>
+            Initialize the logic of the game.
+            </summary>
+        </member>
+        <member name="F:BalloonsPopGame.Srs.GameLogic.Direction">
+            <summary>
+            Initialize the directions for the game.
+            </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.GameLogic.CheckIfEmpty(System.Char[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Checks if given cell on the play board is empty.
+            </summary>
+            <param name="currentPlayBoard">Play board parameter.</param>
+            <param name="row">Row of the cell for checking.</param>
+            <param name="column">Column of the cell for checking.</param>
+            <returns>Returns true or false according to the check.</returns>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.GameLogic.PopBaloons(System.Char[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Pops the balloons linked to given position.
+            </summary>
+            <param name="currentPlayBoard">Play board parameter.</param>
+            <param name="row">Row value of the given cell.</param>
+            <param name="column">Column value of the given cell.</param>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.GameLogic.PopBaloonsInAllDirections(System.Char[0:,0:],System.Int32,System.Int32,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Pops the appropriate balloons in all directions of a given cell.
+            </summary>
+            <param name="currentPlayBoard">Play board parameter.</param>
+            <param name="row">Row value of given cell.</param>
+            <param name="column">Column value of given cell.</param>
+            <param name="searchedTarget">Searched balloon value for pop
+            .</param>
+            <param name="directionX">Value of vertical direction.</param>
+            <param name="directionY">Value of horizontal direction.</param>
         </member>
         <member name="T:BalloonsPopGame.Srs.Player">
             <summary>
@@ -145,35 +280,67 @@
             <summary>
             Initializes a new instance of the <see cref="T:BalloonsPopGame.Srs.Player"/> class.
             </summary>
-            <param name="value">Player's value</param>
-            <param name="name">Player's name</param>
+            <param name="value">Player's value.</param>
+            <param name="name">Player's name.</param>
+        </member>
+        <member name="P:BalloonsPopGame.Srs.Player.Value">
+            <summary>
+            Gets or sets Value property.
+            </summary>
+            <value>Gets or sets the value of Value.</value>
+        </member>
+        <member name="P:BalloonsPopGame.Srs.Player.Name">
+            <summary>
+            Gets or sets Name property.
+            </summary>
+            <value>Gets or sets the value of Name.</value>
         </member>
         <member name="M:BalloonsPopGame.Srs.Player.CompareTo(BalloonsPopGame.Srs.Player)">
             <summary>
             Method for compare two players.
             </summary>
             <param name="other">Value of second player.</param>
-            <returns>Value of comparing</returns>
+            <returns>Value of comparing.</returns>
         </member>
-        <member name="P:BalloonsPopGame.Srs.Player.Value">
+        <member name="T:BalloonsPopGame.Srs.Validators.InputCommandValidator">
             <summary>
-            Value property.
+            Validates input commands.
             </summary>
         </member>
-        <member name="P:BalloonsPopGame.Srs.Player.Name">
+        <member name="M:BalloonsPopGame.Srs.Validators.InputCommandValidator.IsValidInputCommand(System.String)">
             <summary>
-            Name property.
+            Check if given command is valid.
             </summary>
-        </member>
-        <member name="T:BalloonsPopGame.Srs.Boards.Board8X10">
-            <summary>
-            Creates board with sizes 8 to 10.
-            </summary>
+            <param name="currentCommand">Command for checking.</param>
+            <returns>If command is valid.</returns>
         </member>
         <member name="T:BalloonsPopGame.Srs.Validators.WinnerValidator">
             <summary>
             Validate winners.
             </summary>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Validators.WinnerValidator.CheckIfIsWinner(System.Char[0:,0:])">
+            <summary>
+            Check if the game is won.
+            </summary>
+            <param name="playBoard">Value of current play board state.</param>
+            <returns>True of false if game is won.</returns>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Validators.WinnerValidator.SignIfSkilled(System.String[0:,0:],System.Int32)">
+            <summary>
+            Check if current player is skilled.
+            </summary>
+            <param name="chart">Chart with top skilled players.</param>
+            <param name="points">Points of current player.</param>
+            <returns>If player is added to the chart.</returns>
+        </member>
+        <member name="M:BalloonsPopGame.Srs.Validators.WinnerValidator.ProcessUserSigning(System.String[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Sign a user to the cart of top players.
+            </summary>
+            <param name="chart">Chart of top players.</param>
+            <param name="points">Player points.</param>
+            <param name="position">Chart position.</param>
         </member>
     </members>
 </doc>

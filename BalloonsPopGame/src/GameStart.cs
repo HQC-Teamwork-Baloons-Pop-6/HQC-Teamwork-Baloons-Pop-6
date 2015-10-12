@@ -10,7 +10,7 @@
         /// <summary>
         /// Main method of the class.
         /// </summary>
-        private static void Main()
+        internal static void Main()
         {
             var engine = new GameEngine();
             engine.Start();

@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using Formatters;
 
-    public class ScoreBoard
+    public class ScoreBoard : IScoreBoard
     {
         internal readonly ILogger Logger;
         private const byte TopFive = 5;

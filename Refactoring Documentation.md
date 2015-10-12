@@ -65,31 +65,31 @@
 	-   Change the constructor(this).
 	-   Rename private field val to Value and asign this.
 	   
-11.  **Creational Pattern - Factory Method** *The factory method pattern is a design pattern that allows for the creation of objects without specifying the type of object that is to be created in code. A factory class contains a method that allows determination of the created type at run-time.* 
-	- Build different size boards.Manufacturer/Products folder.**Liskov Substitution Principle** `public override char[,] GenerateBoard()`.
+11.  **Creational Pattern - Factory Method** *Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.The factory method pattern is a design pattern that allows for the creation of objects without specifying the type of object that is to be created in code. A factory class contains a method that allows determination of the created type at run-time.* 
+	- Build different size boards.Folder Manufacturer/Products .**Liskov Substitution Principle** `public override char[,] GenerateBoard()`.
 	- Add constructor in class `Board`.
 	- Correct `GameEngine.cs` if statements to work with bigger boards.
 
-12. **Creational Pattern - Singleton** *The singleton pattern is a design pattern that is used to ensure that a class can only have one concurrent instance. Whenever additional objects of a singleton class are required, the previously created, single instance is provided.*
-	- Public sealed class `PrintingManager.cs`.
+12. **Creational Pattern - Singleton** *Ensure a class has only one instance and provide a global point of access to it.The singleton pattern is a design pattern that is used to ensure that a class can only have one concurrent instance. Whenever additional objects of a singleton class are required, the previously created, single instance is provided.*
+	- Public sealed class Folder Printers `PrintingManager.cs`.
 13. **Creational Pattern - Lazy Initialisation** *Tactic of delaying the creation of an object, the calculation of a value, or some other expensive process until the first time it is needed* 
 	- Create different characters for baloons.
 	- BallonsCharacter folder `CharacterFactory.cs`.
-14. **Structural - Flyweight** *The flyweight pattern is a design pattern that is used to minimize resource usage when working with very large numbers of objects. When creating many thousands of identical objects, stateless flyweights can lower the memory used to a manageable level.*
+14. **Structural - Flyweight** *Use sharing to support large numbers of fine-grained objects efficiently.The flyweight pattern is a design pattern that is used to minimize resource usage when working with very large numbers of objects. When creating many thousands of identical objects, stateless flyweights can lower the memory used to a manageable level.*
 
 	- Create different characters for baloons.
 	- Change playboard type from `byte` to `char`BallonsCharacter folder
-15. **Structural - Bridge** *The bridge pattern is a design pattern that separates the abstract elements of a class from its technical implementation. This provides a cleaner implementation of real-world objects and allows the implementation details to be changed easily.*
+15. **Structural - Bridge** *Decouple an abstraction from its implementation so that the two can vary independently.The bridge pattern is a design pattern that separates the abstract elements of a class from its technical implementation. This provides a cleaner implementation of real-world objects and allows the implementation details to be changed easily.*
 
 	- Print scoreboard with different formatters.
 	- Formatters folder => `ScoreBoard.cs`.
-16. **Behavioral - Strategy** The strategy pattern is a design pattern that allows a set of similar algorithms to be defined and encapsulated in their own classes. The algorithm to be used for a particular purpose may then be selected at run-time according to your requirements.**Open/Close principle** `ScoreBoard(ILogger logger)`.**Interface Segregation** `ILogger.cs`,`IFormatter.cs`.
+16. **Behavioral - Strategy** *Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it. The strategy pattern is a design pattern that allows a set of similar algorithms to be defined and encapsulated in their own classes. The algorithm to be used for a particular purpose may then be selected at run-time according to your requirements.**Open/Close principle** `ScoreBoard(ILogger logger)`.**Interface Segregation** `ILogger.cs`,`IFormatter.cs`.
 
 	- Scoreboard print to file or console.(`ConsoleLogger.cs` ,`FileLogger.cs`)
 17. Added AppVeyor for testing.
 18. Introduce method `IsValidInputCommand` in class `gameEngine.cs`
-19.  **Behavioral - Command** The command pattern is a design pattern that enables all of the information for a request to be contained within a single object. The command can then be invoked as required, often as part of a batch of queued commands with rollback capabilities.
-	- (Command folder.Introduce `IInputcommand.cs` ,`RestartCommand.cs`,`TopCommand`,`PlayCommand.cs`.
+19.  **Behavioral - Command** *Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.The command pattern is a design pattern that enables all of the information for a request to be contained within a single object. The command can then be invoked as required, often as part of a batch of queued commands with rollback capabilities.*
+	- Command folder.Introduce `IInputcommand.cs` ,`RestartCommand.cs`,`TopCommand`,`PlayCommand.cs`.
 
 20.  Move `IsValidInputCommand` to a new class `InputCommandValidator.cs`.
 21.  Add default cunstructor ScoreBoard in class `ScoreBoard` with default ConsoleLogger.
