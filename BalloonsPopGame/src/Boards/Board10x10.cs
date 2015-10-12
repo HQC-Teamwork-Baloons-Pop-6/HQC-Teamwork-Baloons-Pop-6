@@ -5,6 +5,9 @@
     /// </summary>
     public class Board10X10 : Board
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Board10X10"/> class.
+        /// </summary>
         public Board10X10()
             : base(10, 10)
         {

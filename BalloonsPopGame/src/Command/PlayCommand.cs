@@ -7,27 +7,60 @@
     using Validators;
 
     /// <summary>
-    /// Process commands of the player.
+    /// Process play command.
     /// </summary>
     public class PlayCommand : IInputCommand
     {
+        /// <summary>
+        /// Command value.
+        /// </summary>
         private readonly string currentCommand;
-        private readonly string[,] topFive;
+
+        /// <summary>
+        /// Top players value.
+        /// </summary>
+        private readonly string[,] topPlayers;
+
+        /// <summary>
+        /// Score board value.
+        /// </summary>
         private readonly ScoreBoard scoreBoard;
+
+        /// <summary>
+        /// Board type.
+        /// </summary>
         private readonly Board board;
+
+        /// <summary>
+        /// Printer value.
+        /// </summary>
         private readonly IPrinterManager printer;
 
-        public PlayCommand(string currentCommand, string[,] topFive, ScoreBoard scoreBoard, Board board, IPrinterManager printer)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayCommand"/> class.
+        /// </summary>
+        /// <param name="currentCommand">Given command.</param>
+        /// <param name="topPlayers">Top players of the game.</param>
+        /// <param name="scoreBoard">Current score board.</param>
+        /// <param name="board">Current play board.</param>
+        /// <param name="printer">Given printer.</param>
+        public PlayCommand(string currentCommand, string[,] topPlayers, ScoreBoard scoreBoard, Board board, IPrinterManager printer)
         {
             this.currentCommand = currentCommand;
-            this.topFive = topFive;
+            this.topPlayers = topPlayers;
             this.scoreBoard = scoreBoard;
             this.board = board;
             this.printer = printer;
         }
 
-        ////TODO: Remove magic values and make them better formated
-        public void Execute(ref char[,] playBoard, ref int userMoves)
+        //// TODO: Remove magic values and make them better formated
+        
+        /// <summary>
+        /// Execute a play command.
+        /// </summary>
+        /// <param name="playBoard">Current play board.</param>
+        /// <param name="playerMoves">Value of player moves.</param>
+        public void Execute(ref char[,] playBoard, ref int playerMoves)
         {
             var userRow = int.Parse(this.currentCommand[0].ToString());
             if (userRow > playBoard.GetLength(0) - 1)
@@ -48,16 +81,16 @@
 
             gameLogic.PopBaloons(playBoard, userRow, userColumn);
 
-            userMoves++;
+            playerMoves++;
 
             var winner = new WinnerValidator();
 
             if (winner.CheckIfIsWinner(playBoard))
             {
-                Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
-                if (winner.SignIfSkilled(this.topFive, userMoves))
+                Console.WriteLine("Gratz ! You completed it in {0} moves.", playerMoves);
+                if (winner.SignIfSkilled(this.topPlayers, playerMoves))
                 {
-                    this.scoreBoard.PrintTopFive(this.topFive);
+                    this.scoreBoard.PrintTopPlayers(this.topPlayers);
                 }
                 else
                 {
@@ -65,7 +98,7 @@
                 }
 
                 playBoard = this.board.GenerateBoard();
-                userMoves = 0;
+                playerMoves = 0;
             }
 
             this.printer.PrintPlayBoard(playBoard);

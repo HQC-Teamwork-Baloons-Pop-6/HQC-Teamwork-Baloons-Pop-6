@@ -7,13 +7,25 @@
     /// </summary>
     public class BalloonFactory
     {
+        /// <summary>
+        /// Set of the balloon characters.
+        /// </summary>
         private readonly Dictionary<byte, Balloon> characters = new Dictionary<byte, Balloon>();
 
+        /// <summary>
+        /// Gets the number of characters.
+        /// </summary>
+        /// <value>Gets character.</value>
         public int NumberOfObjects
         {
             get { return this.characters.Count; }
         }
 
+        /// <summary>
+        /// Gets or adds the searched character.
+        /// </summary>
+        /// <param name="key">Given key for searching.</param>
+        /// <returns>Returns searched character.</returns>
         public Balloon GetCharacter(byte key)
         {
             if (this.characters.ContainsKey(key))

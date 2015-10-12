@@ -15,16 +15,33 @@
     /// </summary>
     public class GameCommandsEngine
     {
+        /// <summary>
+        /// Value of current command.
+        /// </summary>
         private readonly string currentCommand;
-        private readonly string[,] topFive;
 
-        public GameCommandsEngine(string currentCommand, string[,] topFive)
+        /// <summary>
+        /// Top of players.
+        /// </summary>
+        private readonly string[,] topPlayers;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameCommandsEngine"/> class.
+        /// </summary>
+        /// <param name="currentCommand">Given current command.</param>
+        /// <param name="topPlayers">Given top players.</param>
+        public GameCommandsEngine(string currentCommand, string[,] topPlayers)
         {
             this.currentCommand = currentCommand;
-            this.topFive = topFive;
+            this.topPlayers = topPlayers;
         }
-
-        public void ProcessGame(ref char[,] playBoard, ref int userMoves)
+        
+        /// <summary>
+        /// Process the game.
+        /// </summary>
+        /// <param name="playBoard">Current play board value.</param>
+        /// <param name="playerMoves">Current player moves.</param>
+        public void ProcessGame(ref char[,] playBoard, ref int playerMoves)
         {
             byte rowLenght = (byte)playBoard.GetLength(0);
             byte columnLenght = (byte)playBoard.GetLength(1);
@@ -42,12 +59,12 @@
             {
                 case "RESTART":
                     IInputCommand restart = new RestartCommand(boardGenerator, printer);
-                    restart.Execute(ref playBoard, ref userMoves);
+                    restart.Execute(ref playBoard, ref playerMoves);
                     break;
 
                 case "TOP":
-                    IInputCommand topscoreBoard = new TopCommand(scoreBoard, this.topFive);
-                    topscoreBoard.Execute(ref playBoard, ref userMoves);
+                    IInputCommand topscoreBoard = new TopCommand(scoreBoard, this.topPlayers);
+                    topscoreBoard.Execute(ref playBoard, ref playerMoves);
                     break;
 
                 case "EXIT":
@@ -57,8 +74,8 @@
                     InputCommandValidator validator = new InputCommandValidator();
                     if (validator.IsValidInputCommand(this.currentCommand))
                     {
-                        IInputCommand play = new PlayCommand(this.currentCommand, this.topFive, scoreBoard, boardGenerator, printer);
-                        play.Execute(ref playBoard, ref userMoves);
+                        IInputCommand play = new PlayCommand(this.currentCommand, this.topPlayers, scoreBoard, boardGenerator, printer);
+                        play.Execute(ref playBoard, ref playerMoves);
                         break;
                     }
 

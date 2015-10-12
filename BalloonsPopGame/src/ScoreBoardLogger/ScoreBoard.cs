@@ -3,26 +3,47 @@
     using System.Collections.Generic;
     using Formatters;
 
+    /// <summary>
+    /// Initialize a score board.
+    /// </summary>
     public class ScoreBoard
     {
+        /// <summary>
+        /// Instance of logger.
+        /// </summary>
         internal readonly ILogger Logger;
-        private const byte TopFive = 5;
 
+        /// <summary>
+        /// Count of top players.
+        /// </summary>
+        private const byte CountOfTopPlayers = 5;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScoreBoard"/> class.
+        /// </summary>
         internal ScoreBoard()
         {
             this.Logger = new ConsoleLogger(new ScoreBoardFormatter());
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScoreBoard"/> class.
+        /// </summary>
+        /// <param name="logger">Given logger value.</param>
         internal ScoreBoard(ILogger logger)
         {
             this.Logger = logger;
         }
 
-        public void PrintTopFive(string[,] playersTable)
+        /// <summary>
+        /// Prints the top players of the score board.
+        /// </summary>
+        /// <param name="playersTable">Top players parameter.</param>
+        public void PrintTopPlayers(string[,] playersTable)
         {
             var finalScore = new List<Player>();
 
-            for (int i = 0; i < TopFive; ++i)
+            for (int i = 0; i < CountOfTopPlayers; ++i)
             {
                 if (playersTable[i, 0] == null)
                 {
