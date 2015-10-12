@@ -13,8 +13,8 @@ Baloons-Pop-6 / Team Number 1847
 
 [Refactoring documentation.md](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Refactoring%20Documentation.md)
 
-###XML Documentation###
-[BalloonsPopGame.XML](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Documentation/BalloonsPopGame.XML "BalloonsPopGame.XML")
+###MD Documentation###
+[Documentation.MD](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/blob/master/Documentation/Help/Home.md)
 
 ###CHM Documentation###
 [Documentation.chm](https://github.com/HQC-Teamwork-Baloons-Pop-6/HQC-Teamwork-Baloons-Pop-6/tree/master/Documentation/Help)
