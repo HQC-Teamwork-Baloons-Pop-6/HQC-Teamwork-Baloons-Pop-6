@@ -20,8 +20,8 @@ namespace BalloonsPopGame.Srs
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
-        /// <param name="value">Player's value</param>
-        /// <param name="name">Player's name</param>
+        /// <param name="value">Player's value.</param>
+        /// <param name="name">Player's name.</param>
         public Player(int value, string name)
         {
             this.Value = value;
@@ -29,8 +29,9 @@ namespace BalloonsPopGame.Srs
         }
 
         /// <summary>
-        /// Value property.
+        /// Gets or sets Value property.
         /// </summary>
+        /// <value>Gets or sets the value of Value.</value>
         public int Value
         {
             get { return this.value; }
@@ -38,8 +39,9 @@ namespace BalloonsPopGame.Srs
         }
 
         /// <summary>
-        /// Name property.
+        /// Gets or sets Name property.
         /// </summary>
+        /// <value>Gets or sets the value of Name.</value>
         public string Name
         {
             get { return this.name; }
@@ -50,7 +52,7 @@ namespace BalloonsPopGame.Srs
         /// Method for compare two players.
         /// </summary>
         /// <param name="other">Value of second player.</param>
-        /// <returns>Value of comparing</returns>
+        /// <returns>Value of comparing.</returns>
         public int CompareTo(Player other)
         {
             return this.Value.CompareTo(other.Value);

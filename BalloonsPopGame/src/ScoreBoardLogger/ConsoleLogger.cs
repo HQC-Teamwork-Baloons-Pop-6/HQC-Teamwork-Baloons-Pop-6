@@ -9,13 +9,24 @@
     /// </summary>
     public class ConsoleLogger : ILogger
     {
+        /// <summary>
+        /// Instance of formatter.
+        /// </summary>
         internal readonly IFormatter Formatter;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConsoleLogger"/> class.
+        /// </summary>
+        /// <param name="formatter">Given formatter for creating.</param>
         internal ConsoleLogger(IFormatter formatter)
         {
             this.Formatter = formatter;
         }
 
+        /// <summary>
+        /// Logs a given final score.
+        /// </summary>
+        /// <param name="finalScore">Value of final score for logging.</param>
         public void Log(List<Player> finalScore)
         {
             Console.WriteLine("---------TOP FIVE CHART-----------");

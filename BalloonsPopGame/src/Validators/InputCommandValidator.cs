@@ -1,11 +1,23 @@
 ﻿namespace BalloonsPopGame.Srs.Validators
 {
+    /// <summary>
+    /// Validates input commands.
+    /// </summary>
     public class InputCommandValidator
     {
+        /// <summary>
+        /// Check if given command is valid.
+        /// </summary>
+        /// <param name="currentCommand">Command for checking.</param>
+        /// <returns>If command is valid.</returns>
         public bool IsValidInputCommand(string currentCommand)
         {
             bool isValidLenght = currentCommand.Length == 3;
-            if (!isValidLenght) return false;
+            if (!isValidLenght)
+            {
+                return false;
+            }
+
             bool isValidSeparator = currentCommand[1] == ' ' || currentCommand[1] == '.' || currentCommand[1] == ',';
 
             bool isValidColumnNumber = currentCommand[0] >= '0' && currentCommand[0] <= '9';
